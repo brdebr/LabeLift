@@ -1,0 +1,19 @@
+{
+  "name": "labelift",
+  "version": "1.0.0",
+  "description": "Application to manage the sale of labels that do the heavy lifting for you.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brdebr/LabeLift.git"
+  },
+  "author": "Bryan de Oliveira Brettas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brdebr/LabeLift/issues"
+  },
+  "homepage": "https://github.com/brdebr/LabeLift#readme"
+}
