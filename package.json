@@ -4,6 +4,7 @@
   "description": "Application to manage the sale of labels that do the heavy lifting for you.",
   "main": "server/main.js",
   "scripts": {
+    "start": "node ./server/main.js",
     "dev": "nodemon '/server/main.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
