@@ -8,14 +8,17 @@ exports.signup = (req, res, next) => {
     const email = req.body.email;
     const name = req.body.name;
     const password = req.body.password;
-    if(!password || password.length === 0){
+    if (!password || password.length === 0) {
         res.status(500).json({
             message: 'Something went wrong :/',
             errors: ['Password cant be blank or null']
         });
     }
     bcrypt
-        .hash(password, 12)
+        .hash(
+            password,
+            parseInt(process.env.PASS_HASH)
+        )
         .then(hashedPw => {
             // console.log(hashedPw);
             const user = new User({
@@ -40,7 +43,7 @@ exports.signup = (req, res, next) => {
             console.log(err);
             res.status(500).json({
                 message: 'Something went wrong :/',
-                errors: err.errors.map( error => error.message)
+                errors: err.errors.map(error => error.message)
             });
         });
 };
@@ -59,7 +62,7 @@ exports.login = async (req, res, next) => {
                     email: user.email,
                     name: user.name
                 },
-                'mynotsecretkey', {
+                process.env.JWT_SECRET, {
                     expiresIn: '1h'
                 });
             res.json({
