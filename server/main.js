@@ -1,8 +1,5 @@
 // DEPENDENCIES
 
-const dotenv = require('dotenv');
-dotenv.config();
-
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -10,12 +7,14 @@ const bodyParser = require('body-parser');
 const sequelize = require('./database/sequelize');
 const initModels = require('./database/models');
 
+const serverConf = require('./config/server');
+
 console.log();
 
 // EXPRESS JS
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = serverConf.port || 3000;
 
 app.use(morgan('dev'));
 
