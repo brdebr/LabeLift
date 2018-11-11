@@ -75,5 +75,10 @@ exports.login = async (req, res, next) => {
                 token: token
             });
         }
+    }).catch(err => {
+        console.log(err);
+        res.status(400).json({
+            message: 'Something went wrong :/'
+        });
     })
 };
