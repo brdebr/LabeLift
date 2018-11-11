@@ -4,14 +4,20 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 exports.signup = (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
     const email = req.body.email;
     const name = req.body.name;
     const password = req.body.password;
+    if(!password || password.length === 0){
+        res.status(500).json({
+            message: 'Something went wrong :/',
+            errors: ['Password cant be blank or null']
+        });
+    }
     bcrypt
         .hash(password, 12)
         .then(hashedPw => {
-            console.log(hashedPw);
+            // console.log(hashedPw);
             const user = new User({
                 name: name,
                 email: email,
@@ -22,14 +28,20 @@ exports.signup = (req, res, next) => {
         .then(result => {
             res.status(201).json({
                 message: 'User created! :D',
-                data: result.id,
+                data: {
+                    user: {
+                        id: result.id,
+                        name: result.name
+                    }
+                }
             });
         })
         .catch(err => {
-            if (!err.statusCode) {
-                err.statusCode = 500;
-            }
-            next(err);
+            console.log(err);
+            res.status(500).json({
+                message: 'Something went wrong :/',
+                errors: err.errors.map( error => error.message)
+            });
         });
 };
 
