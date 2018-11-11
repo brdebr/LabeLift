@@ -1,4 +1,7 @@
-const dotenv = require('dotenv').config();
+// DEPENDENCIES
+
+const dotenv = require('dotenv');
+dotenv.config();
 
 const express = require('express');
 const morgan = require('morgan');
@@ -8,6 +11,8 @@ const sequelize = require('./database/sequelize');
 const initModels = require('./database/models');
 
 console.log();
+
+// EXPRESS JS
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,6 +24,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
+// ROUTES 
 
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
@@ -26,6 +32,8 @@ const userRoutes = require('./routes/user.routes');
 app.use('/api', userRoutes);
 app.use('/api', authRoutes);
 
+
+// DATABASE AND START SERVER
 
 console.log("Synching database ...\n");
 sequelize.sync()
@@ -47,4 +55,4 @@ sequelize.sync()
 
     }).catch(err => {
         console.log(err);
-    })
+    });
