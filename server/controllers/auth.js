@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-const secrets = require('../config/secrets');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
@@ -18,7 +17,7 @@ exports.signup = (req, res, next) => {
     bcrypt
         .hash(
             password,
-            secrets.userPassHash
+            parseInt(process.env.USR_HASH)
         )
         .then(hashedPw => {
             // console.log(hashedPw);
@@ -64,7 +63,7 @@ exports.login = async (req, res, next) => {
                     email: user.email,
                     name: user.name
                 },
-                secrets.jwtSecret,
+                process.env.JWT_SECRET,
                 {
                     expiresIn: '1h'
                 });

@@ -1,10 +1,9 @@
-const secrets = require('./secrets');
 module.exports = {
-    host: 'localhost',
+    host: process.env.DATABASE_HOST,
     port: 5432,
     dialect: 'postgres',
-    database: 'labelift_development',
-    user: secrets.dbUser,
-    pass: secrets.dbPasswd,
+    database: process.env.DATABASE,
+    user: process.env.DATABASE_USER,
+    pass: process.env.DATABASE_PASSWD,
     reset: false
 };

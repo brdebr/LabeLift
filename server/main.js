@@ -15,7 +15,7 @@ console.log();
 // EXPRESS JS
 
 const app = express();
-const port = serverConf.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(morgan('dev'));
 
@@ -63,11 +63,11 @@ sequelize.sync()
             `  - Dialect: ${result.options.dialect}\n`
         );
 
-        app.listen(port, () => {
+        app.listen(PORT, () => {
             console.log(
                 `-> Express server up! :D\n` +
                 `  - Start time: ${new Date(Date.now()).toLocaleString()}\n` +
-                `  - Port: ${port}`);
+                `  - Port: ${PORT}`);
         });
 
     }).catch(err => {
