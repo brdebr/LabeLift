@@ -21,8 +21,8 @@ app.use(bodyParser.json())
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 
-app.use('/api',userRoutes);
-app.use('/api',authRoutes);
+app.use('/api', userRoutes);
+app.use('/api', authRoutes);
 
 
 console.log("Synching database ...\n");

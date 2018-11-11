@@ -37,27 +37,28 @@ exports.login = async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({where: {
-        email: email
-    }}).then(user => {
-        if(bcrypt.compare(password,user.password)){
+    User.findOne({
+        where: {
+            email: email
+        }
+    }).then(user => {
+        if (bcrypt.compare(password, user.password)) {
             let token = jwt.sign({
-                email: user.email,
-                name: user.name
-            },
-            'mynotsecretkey',
-            {
-                expiresIn: '1h'
+                    email: user.email,
+                    name: user.name
+                },
+                'mynotsecretkey', {
+                    expiresIn: '1h'
+                });
+            res.json({
+                message: 'Login Successfully! :D',
+                data: {
+                    userId: user.id,
+                    userName: user.name,
+                    userEmail: user.email
+                },
+                token: token
             });
-             res.json({
-                 message: 'Login Successfully! :D',
-                 data: {
-                     userId: user.id,
-                     userName: user.name,
-                     userEmail: user.email
-                 },
-                 token: token
-             });
         }
     })
 };

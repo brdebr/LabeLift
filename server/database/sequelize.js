@@ -5,7 +5,7 @@ const sequelize = new Sequelize({
     dialect: 'postgres',
     database: 'labelift_development',
     username: 'brdebr',
-    password:'devz',
+    password: 'devz',
     operatorsAliases: false,
 });
 
