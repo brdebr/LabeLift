@@ -3,6 +3,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const sequelize = require('./database/sequelize');
 const initModels = require('./database/models');
@@ -20,8 +21,13 @@ app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({
     extended: false
-}))
-app.use(bodyParser.json())
+}));
+app.use(bodyParser.json());
+
+// PASSPORT
+app.use(passport.initialize());
+require('./config/passport')(passport);
+
 
 // ROUTES 
 

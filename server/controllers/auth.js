@@ -60,6 +60,7 @@ exports.login = async (req, res, next) => {
     }).then(user => {
         if (bcrypt.compare(password, user.password)) {
             let token = jwt.sign({
+                    id: user.id,
                     email: user.email,
                     name: user.name
                 },
@@ -74,7 +75,7 @@ exports.login = async (req, res, next) => {
                     userName: user.name,
                     userEmail: user.email
                 },
-                token: token
+                token: 'Bearer '+token
             });
         }
     }).catch(err => {
