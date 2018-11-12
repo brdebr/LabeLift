@@ -29,12 +29,12 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
-      'Access-Control-Allow-Methods',
-      'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+        'Access-Control-Allow-Methods',
+        'OPTIONS, GET, POST, PUT, PATCH, DELETE'
     );
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
-  });
+});
 
 // PASSPORT
 app.use(passport.initialize());
@@ -48,6 +48,18 @@ const userRoutes = require('./routes/user.routes');
 
 app.use('/api', userRoutes);
 app.use('/api', authRoutes);
+
+app.use('/', (req, res) => {
+    res.send(`
+        <h3>Routes</h3>
+        <ul>
+            <li>https://labelift-dev.herokuapp.com/api/users</li>
+            <li>https://labelift-dev.herokuapp.com/api/auth/signup</li>
+            <li>https://labelift-dev.herokuapp.com/api/auth/login</li>
+            <li>https://labelift-dev.herokuapp.com/api/current</li>
+        </ul>
+        `);
+});
 
 
 // DATABASE AND START SERVER
