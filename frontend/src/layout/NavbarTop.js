@@ -91,6 +91,9 @@ const styles = theme => ({
       display: 'none',
     },
   },
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 class NavbarTop extends React.Component {
@@ -172,7 +175,7 @@ class NavbarTop extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+            <IconButton className={classes.menuButton} color="inherit" onClick={this.props.toggleOpen} aria-label="Open drawer">
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
@@ -193,12 +196,12 @@ class NavbarTop extends React.Component {
             </div>
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
+                <Badge badgeContent={0} color="secondary">
                   <MailIcon />
                 </Badge>
               </IconButton>
               <IconButton color="inherit">
-                <Badge badgeContent={17} color="secondary">
+                <Badge badgeContent={0} color="secondary">
                   <NotificationsIcon />
                 </Badge>
               </IconButton>

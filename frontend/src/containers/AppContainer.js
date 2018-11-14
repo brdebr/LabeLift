@@ -1,28 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Sidebar from '../layout/sidebar';
 
 
 
 class AppContainer extends React.Component {
   state = {
-    drawer: true,
+    mini: true,
     logged: false
   };
 
   handleDrawerToggle = () => {
-    this.setState({drawer: !this.state.drawer});
+    this.setState({mini: !this.state.mini});
   }
 
   render() {
     return (
-        <Sidebar></Sidebar>
+        <Sidebar mini={this.state.mini} toggleMini={this.handleDrawerToggle}/>
     );
   }
 }
-
-AppContainer.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default AppContainer;
