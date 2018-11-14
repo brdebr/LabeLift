@@ -41,7 +41,7 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 3,
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -57,6 +57,8 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    top:0,
+    right:0
   },
   inputRoot: {
     color: 'inherit',
@@ -64,13 +66,17 @@ const styles = theme => ({
   },
   inputInput: {
     paddingTop: theme.spacing.unit,
-    paddingRight: theme.spacing.unit,
+    paddingRight: theme.spacing.unit * 9,
     paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 10,
+    paddingLeft: theme.spacing.unit * 2,
     transition: theme.transitions.create('width'),
     width: '100%',
+    textOverflow: 'ellipsis',
     [theme.breakpoints.up('md')]: {
-      width: 200,
+      width: 100,
+      '&:focus': {
+        width: 200,
+      },
     },
   },
   sectionDesktop: {
@@ -172,10 +178,8 @@ class NavbarTop extends React.Component {
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
               LabeLift
             </Typography>
+            <div className={classes.grow} />
             <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
               <InputBase
                 placeholder="Search…"
                 classes={{
@@ -183,8 +187,10 @@ class NavbarTop extends React.Component {
                   input: classes.inputInput,
                 }}
               />
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
             </div>
-            <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">
