@@ -41,7 +41,7 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 3,
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -57,6 +57,8 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    top: 0,
+    right: 0,
   },
   inputRoot: {
     color: 'inherit',
@@ -64,13 +66,17 @@ const styles = theme => ({
   },
   inputInput: {
     paddingTop: theme.spacing.unit,
-    paddingRight: theme.spacing.unit,
+    paddingRight: theme.spacing.unit * 9,
     paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 10,
+    paddingLeft: theme.spacing.unit * 2,
     transition: theme.transitions.create('width'),
     width: '100%',
+    textOverflow: 'ellipsis',
     [theme.breakpoints.up('md')]: {
-      width: 200,
+      width: 100,
+      '&:focus': {
+        width: 200,
+      },
     },
   },
   sectionDesktop: {
@@ -84,6 +90,9 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+  },
+  typography: {
+    useNextVariants: true,
   },
 });
 
@@ -138,23 +147,23 @@ class NavbarTop extends React.Component {
         onClose={this.handleMobileMenuClose}
       >
         <MenuItem>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+          <IconButton color='inherit'>
+            <Badge badgeContent={4} color='secondary'>
               <MailIcon />
             </Badge>
           </IconButton>
           <p>Messages</p>
         </MenuItem>
         <MenuItem>
-          <IconButton color="inherit">
-            <Badge badgeContent={11} color="secondary">
+          <IconButton color='inherit'>
+            <Badge badgeContent={11} color='secondary'>
               <NotificationsIcon />
             </Badge>
           </IconButton>
           <p>Notifications</p>
         </MenuItem>
         <MenuItem onClick={this.handleProfileMenuOpen}>
-          <IconButton color="inherit">
+          <IconButton color='inherit'>
             <AccountCircle />
           </IconButton>
           <p>Profile</p>
@@ -164,49 +173,63 @@ class NavbarTop extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position='static'>
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              onClick={this.props.toggleOpen}
+              aria-label='Open drawer'
+            >
               <MenuIcon />
             </IconButton>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+            <Typography
+              className={classes.title}
+              variant='h6'
+              color='inherit'
+              noWrap
+            >
               LabeLift
             </Typography>
+            <div className={classes.grow} />
             <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
               <InputBase
-                placeholder="Search…"
+                placeholder='Search…'
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
               />
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
             </div>
-            <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
+              <IconButton color='inherit'>
+                <Badge badgeContent={0} color='secondary'>
                   <MailIcon />
                 </Badge>
               </IconButton>
-              <IconButton color="inherit">
-                <Badge badgeContent={17} color="secondary">
+              <IconButton color='inherit'>
+                <Badge badgeContent={0} color='secondary'>
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
               <IconButton
                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-                aria-haspopup="true"
+                aria-haspopup='true'
                 onClick={this.handleProfileMenuOpen}
-                color="inherit"
+                color='inherit'
               >
                 <AccountCircle />
               </IconButton>
             </div>
             <div className={classes.sectionMobile}>
-              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
+              <IconButton
+                aria-haspopup='true'
+                onClick={this.handleMobileMenuOpen}
+                color='inherit'
+              >
                 <MoreIcon />
               </IconButton>
             </div>
