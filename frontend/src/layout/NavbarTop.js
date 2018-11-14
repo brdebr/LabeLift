@@ -57,8 +57,8 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    top:0,
-    right:0
+    top: 0,
+    right: 0,
   },
   inputRoot: {
     color: 'inherit',
@@ -147,23 +147,23 @@ class NavbarTop extends React.Component {
         onClose={this.handleMobileMenuClose}
       >
         <MenuItem>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+          <IconButton color='inherit'>
+            <Badge badgeContent={4} color='secondary'>
               <MailIcon />
             </Badge>
           </IconButton>
           <p>Messages</p>
         </MenuItem>
         <MenuItem>
-          <IconButton color="inherit">
-            <Badge badgeContent={11} color="secondary">
+          <IconButton color='inherit'>
+            <Badge badgeContent={11} color='secondary'>
               <NotificationsIcon />
             </Badge>
           </IconButton>
           <p>Notifications</p>
         </MenuItem>
         <MenuItem onClick={this.handleProfileMenuOpen}>
-          <IconButton color="inherit">
+          <IconButton color='inherit'>
             <AccountCircle />
           </IconButton>
           <p>Profile</p>
@@ -173,18 +173,28 @@ class NavbarTop extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position='static'>
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" onClick={this.props.toggleOpen} aria-label="Open drawer">
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              onClick={this.props.toggleOpen}
+              aria-label='Open drawer'
+            >
               <MenuIcon />
             </IconButton>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+            <Typography
+              className={classes.title}
+              variant='h6'
+              color='inherit'
+              noWrap
+            >
               LabeLift
             </Typography>
             <div className={classes.grow} />
             <div className={classes.search}>
               <InputBase
-                placeholder="Search…"
+                placeholder='Search…'
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
@@ -195,27 +205,31 @@ class NavbarTop extends React.Component {
               </div>
             </div>
             <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <Badge badgeContent={0} color="secondary">
+              <IconButton color='inherit'>
+                <Badge badgeContent={0} color='secondary'>
                   <MailIcon />
                 </Badge>
               </IconButton>
-              <IconButton color="inherit">
-                <Badge badgeContent={0} color="secondary">
+              <IconButton color='inherit'>
+                <Badge badgeContent={0} color='secondary'>
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
               <IconButton
                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-                aria-haspopup="true"
+                aria-haspopup='true'
                 onClick={this.handleProfileMenuOpen}
-                color="inherit"
+                color='inherit'
               >
                 <AccountCircle />
               </IconButton>
             </div>
             <div className={classes.sectionMobile}>
-              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
+              <IconButton
+                aria-haspopup='true'
+                onClick={this.handleMobileMenuOpen}
+                color='inherit'
+              >
                 <MoreIcon />
               </IconButton>
             </div>

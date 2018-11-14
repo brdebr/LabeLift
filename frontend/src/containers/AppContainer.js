@@ -1,7 +1,5 @@
 import React from 'react';
-import Sidebar from '../layout/sidebar';
-
-
+import Sidebar from '../layout/Sidebar';
 
 class AppContainer extends React.Component {
   state = {
