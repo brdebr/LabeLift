@@ -124,17 +124,8 @@ class Sidebar extends React.Component {
           }}
           open={this.state.open}
         >
-          <div className={classes.toolbar}>
-            <IconButton onClick={this.handleDrawerClose}>
-              {theme.direction === 'rtl' ? (
-                <ChevronRightIcon />
-              ) : (
-                <ChevronLeftIcon />
-              )}
-            </IconButton>
-          </div>
-          <Divider />
-          <List>
+          
+          <List style={{paddingTop:70}}>
             {['Clients', 'Products', 'Delivery notes', 'Invoices'].map(
               (text, index) => (
                 <ListItem button key={text}>

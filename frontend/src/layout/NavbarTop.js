@@ -16,6 +16,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import blue from '@material-ui/core/colors/blue';
+import grey from '@material-ui/core/colors/grey';
 
 const styles = theme => ({
   root: {
@@ -37,9 +39,12 @@ const styles = theme => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: blue[900],
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(blue[400], 0.25),
     },
     marginRight: theme.spacing.unit * 3,
     marginLeft: 0,
@@ -48,6 +53,7 @@ const styles = theme => ({
       marginLeft: theme.spacing.unit * 3,
       width: 'auto',
     },
+    overflow:'hidden'
   },
   searchIcon: {
     width: theme.spacing.unit * 9,
@@ -76,6 +82,8 @@ const styles = theme => ({
       width: 100,
       '&:focus': {
         width: 200,
+        backgroundColor: fade(blue[700], 0.75),
+        color: theme.palette.common.white
       },
     },
   },
