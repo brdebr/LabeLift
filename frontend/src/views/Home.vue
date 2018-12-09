@@ -1,13 +1,13 @@
 <template>
-  <HelloWorld />
+  <Gateway/>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import Gateway from "../components/Gateway";
 
-  export default {
-    components: {
-      HelloWorld
-    }
+export default {
+  components: {
+    Gateway
   }
+};
 </script>
