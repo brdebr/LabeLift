@@ -1,0 +1,16 @@
+.page-enter-active{
+  transition: all 1s ease-out;
+}
+.page-leave-active {
+  transition: all 1s ease-out;
+}
+// When enters the page transition from -30px to 0
+.page-enter{
+  opacity: 0;
+  transform: translateX(-30px);
+}
+// When leaves the page transition 0 to 30px
+.page-leave-to {
+  transform: translateX(30px);
+  opacity: 0;
+}
