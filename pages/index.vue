@@ -1,28 +1,17 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center>
-    <v-flex
-      xs12
-      sm8
-      md6>
+  <v-layout column justify-center align-center>
+    <v-flex xs12 sm8 md6>
       <div class="text-xs-center"/>
       <v-card>
         <v-card-title class="headline">Welcome to the LabeLift</v-card-title>
         <v-card-text>
           <p>Web application to manage the sale of labels that do the heavy lifting for you.</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, repellat voluptatum. Dicta non earum expedita suscipit. Facere, molestias dolor facilis tempora perferendis veniam at error sunt quo, suscipit eaque unde.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet dui vel leo lobortis imperdiet a a ipsum. Nam vehicula aliquet mi. Cras maximus enim eu erat pellentesque, non finibus massa molestie. Donec massa velit, facilisis ac magna et, condimentum egestas tellus. Integer rhoncus, enim vel vulputate euismod, velit ex porttitor nisl, id congue augue est non elit. Fusce ac ipsum sem. Donec eget magna eu velit rutrum mollis.
           </p>
-          <v-data-table
-            :headers="headers"
-            :items="techs"
-            hide-actions
-          >
-            <template
-              slot="items"
-              slot-scope="props">
+          <h3>Technologies</h3>
+          <v-data-table :headers="headers" :items="techs" hide-actions>
+            <template slot="items" slot-scope="props">
               <td>{{ props.item.title }}</td>
               <td class="text-xs-right">{{ props.item.description }}</td>
             </template>
@@ -30,12 +19,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
-          <v-btn
-            color="primary"
-            flat
-            outline
-            nuxt
-            to="/about">About</v-btn>
+          <v-btn color="primary" flat outline nuxt to="/about">About</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>

@@ -4,6 +4,7 @@
       :mini-variant="miniVariant"
       :clipped="clipped"
       v-model="drawer"
+      width="275"
       fixed
       app
     >
@@ -20,10 +21,10 @@
             exact
           >
             <v-list-tile-action>
-              <v-icon v-html="item.icon" />
+              <v-icon v-html="item.icon" class="ml-3 mr-3" />
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title v-text="item.title" />
+              <v-list-tile-title v-text="item.title" class="ml-2"/>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -45,15 +46,15 @@
       class="blue-grey darken-1"
       app
     >
-      <v-toolbar-side-icon 
-        class="light-blue--text text--lighten-3" 
-        outline 
+      <v-toolbar-side-icon
+        class="light-blue--text text--lighten-3"
+        outline
         @click="drawer = !drawer" />
 
       <v-toolbar-title v-text="title"/>
       <v-spacer/>
-      <v-btn 
-        depressed 
+      <v-btn
+        depressed
         color="light-green darken-1">
         <span class="mr-2">Login</span>
         <v-icon>exit_to_app</v-icon>
@@ -71,7 +72,7 @@
       class="grey ligthte-2 px-3"
       app
     >
-      <span>&copy; 2017</span>
+      <span>&copy; 2018</span>
     </v-footer>
   </v-app>
 </template>
