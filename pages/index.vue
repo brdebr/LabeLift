@@ -1,11 +1,11 @@
 <template>
-  <v-layout 
-    column 
-    justify-center 
+  <v-layout
+    column
+    justify-center
     align-center>
-    <v-flex 
-      xs12 
-      sm8 
+    <v-flex
+      xs12
+      sm8
       md6>
       <div class="text-xs-center"/>
       <v-card>
@@ -16,12 +16,12 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet dui vel leo lobortis imperdiet a a ipsum. Nam vehicula aliquet mi. Cras maximus enim eu erat pellentesque, non finibus massa molestie. Donec massa velit, facilisis ac magna et, condimentum egestas tellus. Integer rhoncus, enim vel vulputate euismod, velit ex porttitor nisl, id congue augue est non elit. Fusce ac ipsum sem. Donec eget magna eu velit rutrum mollis.
           </p>
           <h3>Technologies</h3>
-          <v-data-table 
-            :headers="headers" 
-            :items="techs" 
+          <v-data-table
+            :headers="headers"
+            :items="techs"
             hide-actions>
-            <template 
-              slot="items" 
+            <template
+              slot="items"
               slot-scope="props">
               <td>{{ props.item.title }}</td>
               <td class="text-xs-right">{{ props.item.description }}</td>
@@ -30,11 +30,11 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
-          <v-btn 
-            color="primary" 
-            flat 
-            outline 
-            nuxt 
+          <v-btn
+            color="secondary"
+            flat
+            outline
+            nuxt
             to="/about">About</v-btn>
         </v-card-actions>
       </v-card>

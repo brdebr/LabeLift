@@ -75,66 +75,10 @@
             <span class="headline">Login</span>
           </v-card-title>
           <v-card-text v-if="!login.loading">
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex
-                  xs12
-                  sm6
-                  md4>
-                  <v-text-field
-                    label="Legal first name*"
-                    required/>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
-                  md4>
-                  <v-text-field
-                    label="Legal middle name"
-                    hint="example of helper text only on focus"/>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
-                  md4>
-                  <v-text-field
-                    label="Legal last name*"
-                    hint="example of persistent helper text"
-                    persistent-hint
-                    required
-                  />
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field
-                    label="Email*"
-                    required/>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field
-                    label="Password*"
-                    type="password"
-                    required/>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6>
-                  <v-select
-                    :items="['0-17', '18-29', '30-54', '54+']"
-                    label="Age*"
-                    required
-                  />
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6>
-                  <v-autocomplete
-                    :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                    label="Interests"
-                    multiple
-                  />
-                </v-flex>
-              </v-layout>
-            </v-container>
+           <v-form>
+              <v-text-field prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
+              <v-text-field id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+            </v-form>
           </v-card-text>
           <v-scale-transition mode="out-in">
             <v-card-text v-if="login.loading">
@@ -149,13 +93,15 @@
           <v-card-actions v-if="!login.loading">
             <v-spacer/>
             <v-btn
-              color="blue darken-1"
+              color="secondary"
               flat
-              @click="login.dialog = false">Close</v-btn>
+              outline
+              @click="login.dialog = false">Cancel</v-btn>
             <v-btn
-              color="blue darken-1"
+              color="success"
               flat
-              @click="login.loading = true">Save</v-btn>
+              outline
+              @click="login.loading = true">Login</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
