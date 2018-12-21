@@ -25,12 +25,12 @@
               slot-scope="props">
 
               <td>
-                <v-avatar 
-                  class="ma-1 mr-3" 
-                  size="45" 
+                <v-avatar
+                  class="ma-1 mr-3"
+                  size="45"
                   color="light-blue lighten-5">
-                  <fa 
-                    :icon="props.item.icon" 
+                  <fa
+                    :icon="props.item.icon"
                     style="font-size: 24px" />
                 </v-avatar>
                 {{ props.item.title }}

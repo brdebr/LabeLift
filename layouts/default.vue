@@ -56,72 +56,23 @@
         @click="drawer = !drawer" />
 
       <v-toolbar-title>
-        <nuxt-link 
-          exact 
-          to="/" 
-          tag="span" 
+        <nuxt-link
+          exact
+          to="/"
+          tag="span"
           style="cursor:pointer">
           {{ title }}
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer/>
-      <v-dialog
-        v-model="login.dialog"
-        :persistent="login.loading"
-        lazy
-        max-width="600px"
-        class="login-dialog">
+      <login-form>
         <v-btn
-          slot="activator"
           depressed
           color="light-green darken-1">
           <span class="mr-2">Login</span>
           <v-icon>exit_to_app</v-icon>
         </v-btn>
-        <v-card class="login-dialog">
-          <v-card-title>
-            <span class="headline">Login</span>
-          </v-card-title>
-          <v-card-text v-if="!login.loading">
-            <v-form>
-              <v-text-field
-                prepend-icon="person"
-                name="login"
-                label="Login"
-                type="text"/>
-              <v-text-field
-                id="password"
-                prepend-icon="lock"
-                name="password"
-                label="Password"
-                type="password"/>
-            </v-form>
-          </v-card-text>
-          <v-scale-transition mode="out-in">
-            <v-card-text v-if="login.loading">
-              <p>
-                Handling your request, please stand by...
-              </p>
-              <p>
-                <v-progress-linear :indeterminate="true"/>
-              </p>
-            </v-card-text>
-          </v-scale-transition>
-          <v-card-actions v-if="!login.loading">
-            <v-spacer/>
-            <v-btn
-              color="secondary"
-              flat
-              outline
-              @click="login.dialog = false">Cancel</v-btn>
-            <v-btn
-              color="success"
-              flat
-              outline
-              @click="login.loading = true">Login</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+      </login-form>
 
 
     </v-toolbar>
@@ -142,7 +93,11 @@
 </template>
 
 <script>
+import LoginForm from '~/components/LoginForm'
 export default {
+  components: {
+    LoginForm
+  },
   data() {
     return {
       clipped: true,
