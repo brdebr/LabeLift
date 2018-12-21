@@ -26,11 +26,13 @@
 
               <td>
                 <v-avatar
-                  class="ma-1 mr-3"
+                  class="ma-1 mr-3 avatar-border"
                   size="45"
-                  color="light-blue lighten-5">
+                  color="light-blue lighten-5"
+                  style="border:1px solid #546E7A !important">
                   <fa
                     :icon="props.item.icon"
+                    :color="props.item.color"
                     style="font-size: 24px" />
                 </v-avatar>
                 {{ props.item.title }}
@@ -54,8 +56,6 @@
 </template>
 
 <script>
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-
 export default {
   data() {
     return {
@@ -77,22 +77,26 @@ export default {
         {
           title: 'Node.js',
           description: 'The runtime to build everthing using Js',
-          icon: ['fab', 'node']
+          icon: ['fab', 'node'],
+          color: '#4CAF50'
         },
         {
-          title: 'Nuxt.js',
+          title: 'Nuxt',
           description: 'Used for several develpment conveniences and SSR',
-          icon: ['fas', 'server']
+          icon: ['fas', 'server'],
+          color: '#004D40'
         },
         {
-          title: 'Vue.js',
+          title: 'Vue',
           description: 'As the base frontend framework',
-          icon: ['fab', 'vuejs']
+          icon: ['fab', 'vuejs'],
+          color: '#2E7D32'
         },
         {
           title: 'Vuetify',
           description: 'As the theme desing base and components',
-          icon: ['fas', 'palette']
+          icon: ['fas', 'palette'],
+          color: '#0277BD'
         }
       ]
     }
