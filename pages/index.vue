@@ -23,7 +23,18 @@
             <template
               slot="items"
               slot-scope="props">
-              <td>{{ props.item.title }}</td>
+
+              <td>
+                <v-avatar 
+                  class="ma-1 mr-3" 
+                  size="45" 
+                  color="light-blue lighten-5">
+                  <fa 
+                    :icon="props.item.icon" 
+                    style="font-size: 24px" />
+                </v-avatar>
+                {{ props.item.title }}
+              </td>
               <td class="text-xs-right">{{ props.item.description }}</td>
             </template>
           </v-data-table>
@@ -43,14 +54,9 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  },
   data() {
     return {
       headers: [
@@ -70,19 +76,23 @@ export default {
       techs: [
         {
           title: 'Node.js',
-          description: 'The runtime to build everthing using Js'
+          description: 'The runtime to build everthing using Js',
+          icon: ['fab', 'node']
         },
         {
           title: 'Nuxt.js',
-          description: 'Used for several develpment conveniences and SSR'
+          description: 'Used for several develpment conveniences and SSR',
+          icon: ['fas', 'server']
         },
         {
           title: 'Vue.js',
-          description: 'As the frontend framework'
+          description: 'As the base frontend framework',
+          icon: ['fab', 'vuejs']
         },
         {
           title: 'Vuetify',
-          description: 'As the theme desing base and components'
+          description: 'As the theme desing base and components',
+          icon: ['fas', 'palette']
         }
       ]
     }

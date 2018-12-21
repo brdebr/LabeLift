@@ -79,9 +79,18 @@
             <span class="headline">Login</span>
           </v-card-title>
           <v-card-text v-if="!login.loading">
-           <v-form>
-              <v-text-field prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
-              <v-text-field id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+            <v-form>
+              <v-text-field
+                prepend-icon="person"
+                name="login"
+                label="Login"
+                type="text"/>
+              <v-text-field
+                id="password"
+                prepend-icon="lock"
+                name="password"
+                label="Password"
+                type="password"/>
             </v-form>
           </v-card-text>
           <v-scale-transition mode="out-in">
@@ -143,10 +152,10 @@ export default {
       title: 'LabeLift',
       login: {
         dialog: false,
-        loading: false,
+        loading: false
       }
     }
-  },
+  }
 }
 </script>
 <style lang="scss">
