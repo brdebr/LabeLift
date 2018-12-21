@@ -56,8 +56,12 @@
         @click="drawer = !drawer" />
 
       <v-toolbar-title>
-        <nuxt-link exact to="/" tag="span" style="cursor:pointer">
-          {{title}}
+        <nuxt-link 
+          exact 
+          to="/" 
+          tag="span" 
+          style="cursor:pointer">
+          {{ title }}
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer/>
