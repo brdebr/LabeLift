@@ -6,9 +6,11 @@
     max-width="600px"
     class="login-dialog"
   >
-      <template slot="activator">
-        <slot/>
-      </template>
+    <template slot="activator">
+      <slot>
+        LOGIN
+      </slot>
+    </template>
 
     <v-card class="login-dialog">
       <v-card-title>
