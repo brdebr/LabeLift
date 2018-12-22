@@ -1,10 +1,11 @@
 <template>
   <v-navigation-drawer
     :mini-variant="miniVariant"
-    :clipped="clipped"
+    clipped
     :value="display"
     width="275"
     fixed
+    @input="val => $emit('setDrawer',val)"
     app
   >
     <v-layout
@@ -51,17 +52,9 @@ export default {
   },
   data() {
     return {
-      clipped: true,
-      drawer: true,
-      fixed: false,
       miniVariant: true,
-      title: 'LabeLift',
-      login: {
-        dialog: false,
-        loading: false
-      }
     }
-  }
+  },
 }
 </script>
 

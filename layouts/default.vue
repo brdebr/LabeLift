@@ -5,6 +5,7 @@
     <TheDrawer
       :display="drawer.visible"
       :items="drawer.items"
+      @setDrawer="setDrawer"
     />
     <v-content class="grey lighten-3">
       <v-container>
@@ -34,7 +35,12 @@ export default {
         ]
       }
     }
-  }
+  },
+  methods: {
+    setDrawer(val) {
+      this.drawer.visible = val;
+    }
+  },
 }
 </script>
 <style lang="scss">
