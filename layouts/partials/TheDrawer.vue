@@ -45,17 +45,16 @@
 </template>
 <script>
 export default {
-  props: { display: { type: Boolean, default: false } },
+  props: {
+    display: { type: Boolean, default: false },
+    items: { type: Array, default: () => [] }
+  },
   data() {
     return {
       clipped: true,
       drawer: true,
       fixed: false,
-      items: [
-        { icon: 'apps', title: 'Dashboard', to: '/' },
-        { icon: 'bubble_chart', title: 'About', to: '/about' }
-      ],
-      miniVariant: false,
+      miniVariant: true,
       title: 'LabeLift',
       login: {
         dialog: false,

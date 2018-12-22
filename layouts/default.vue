@@ -1,9 +1,10 @@
 <template>
   <v-app>
     <TheToolbar
-      @toggleDrawer="drawer = !drawer"/>
+      @toggleDrawer="drawer.visible = !drawer.visible"/>
     <TheDrawer
-      :display="drawer"
+      :display="drawer.visible"
+      :items="drawer.items"
     />
     <v-content class="grey lighten-3">
       <v-container>
@@ -25,17 +26,12 @@ export default {
   },
   data() {
     return {
-      clipped: true,
-      drawer: true,
-      items: [
-        { icon: 'apps', title: 'Dashboard', to: '/' },
-        { icon: 'bubble_chart', title: 'About', to: '/about' }
-      ],
-      miniVariant: false,
-      title: 'LabeLift',
-      login: {
-        dialog: false,
-        loading: false
+      drawer: {
+        visible: true,
+        items: [
+          { icon: 'apps', title: 'Dashboard', to: '/' },
+          { icon: 'info', title: 'About', to: '/about' }
+        ]
       }
     }
   }

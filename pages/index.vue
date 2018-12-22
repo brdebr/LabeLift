@@ -94,7 +94,7 @@ export default {
         },
         {
           title: 'Vuetify',
-          description: 'As the theme desing base and components',
+          description: 'As the base theme desing and components',
           icon: ['fas', 'palette'],
           color: '#0277BD'
         }

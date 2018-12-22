@@ -1,7 +1,7 @@
 <template>
   <v-dialog
-    v-model="login.dialog"
-    :persistent="login.loading"
+    v-model="dialog"
+    :persistent="loading"
     lazy
     max-width="600px"
     class="login-dialog"
@@ -16,12 +16,12 @@
       <v-card-title class="justify-center">
         <span class="headline">Login</span>
       </v-card-title>
-      <v-card-text v-if="!login.loading">
+      <v-card-text v-if="!loading">
         <v-form>
           <v-text-field
             prepend-icon="person"
-            name="login"
-            label="Login"
+            name="username"
+            label="Username"
             type="text"/>
           <v-text-field
             id="password"
@@ -33,15 +33,15 @@
         </v-form>
       </v-card-text>
       <v-scale-transition mode="out-in">
-        <v-card-text v-if="login.loading">
+        <v-card-text v-if="loading">
           <p>Handling your request, please stand by...</p>
           <p>
             <v-progress-linear :indeterminate="true"/>
           </p>
         </v-card-text>
       </v-scale-transition>
-      <v-card-actions 
-        v-if="!login.loading" 
+      <v-card-actions
+        v-if="!loading"
         class="pb-4">
         <v-spacer/>
         <v-btn
@@ -49,7 +49,7 @@
           flat
           round
           outline
-          @click="$emit('close')">
+          @click="dialog = false">
           Cancel
           <v-icon class="ml-1 pl-0">cancel</v-icon>
         </v-btn>
@@ -59,7 +59,7 @@
           round
           outline
           class="ml-3 mr-2"
-          @click="login.loading = true">
+          @click="loading = true">
           Login
           <v-icon class="ml-1 pl-0">exit_to_app</v-icon>
         </v-btn>
@@ -71,19 +71,8 @@
 export default {
   data() {
     return {
-      clipped: true,
-      drawer: true,
-      fixed: false,
-      items: [
-        { icon: 'apps', title: 'Dashboard', to: '/' },
-        { icon: 'bubble_chart', title: 'About', to: '/about' }
-      ],
-      miniVariant: false,
-      title: 'LabeLift',
-      login: {
-        dialog: false,
-        loading: false
-      }
+      dialog: false,
+      loading: false
     }
   }
 }
