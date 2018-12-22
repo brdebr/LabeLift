@@ -1,14 +1,14 @@
 <template>
   <v-footer
-  height="auto"
+    height="auto"
     class="grey ligthte-2 px-3"
-    app
+
   >
     <v-layout
       row
     >
       <v-flex
-      align-self-center
+        align-self-center
       >
         <span class="mr-2">Bryan de Oliveira</span>
         <span>&copy; 2018</span>
