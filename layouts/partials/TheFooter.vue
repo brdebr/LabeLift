@@ -2,7 +2,7 @@
   <v-footer
     height="auto"
     class="grey ligthte-2 px-3"
-
+    app
   >
     <v-layout
       row

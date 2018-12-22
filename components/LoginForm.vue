@@ -40,7 +40,9 @@
           </p>
         </v-card-text>
       </v-scale-transition>
-      <v-card-actions v-if="!login.loading" class="pb-4">
+      <v-card-actions 
+        v-if="!login.loading" 
+        class="pb-4">
         <v-spacer/>
         <v-btn
           color="error"
@@ -48,8 +50,8 @@
           round
           outline
           @click="$emit('close')">
-            Cancel
-            <v-icon class="ml-1 pl-0">cancel</v-icon>
+          Cancel
+          <v-icon class="ml-1 pl-0">cancel</v-icon>
         </v-btn>
         <v-btn
           color="success darken-2"
@@ -58,8 +60,8 @@
           outline
           class="ml-3 mr-2"
           @click="login.loading = true">
-            Login
-            <v-icon class="ml-1 pl-0">exit_to_app</v-icon>
+          Login
+          <v-icon class="ml-1 pl-0">exit_to_app</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
