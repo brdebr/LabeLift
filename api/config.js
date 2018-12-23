@@ -14,6 +14,12 @@ const config = {
       paswd: 'devz',
       dialect: 'postgres',
       reset: false
+    },
+    secrets: {
+      userPassHash: 10,
+      jwtSecret: 'my-secretshhh',
+      dbUser: 'myusername',
+      dbPasswd: 'mypassword'
     }
   },
 
@@ -29,6 +35,12 @@ const config = {
       paswd: 'devz',
       dialect: 'postgres',
       reset: true
+    },
+    secrets: {
+      userPassHash: 10,
+      jwtSecret: 'my-secretshhh',
+      dbUser: 'myusername',
+      dbPasswd: 'mypassword'
     }
   },
 
@@ -44,6 +56,12 @@ const config = {
       paswd: 'devz',
       dialect: 'postgres',
       reset: false
+    },
+    secrets: {
+      userPassHash: 10,
+      jwtSecret: 'my-secretshhh',
+      dbUser: 'myusername',
+      dbPasswd: 'mypassword'
     }
   }
 }

@@ -11,4 +11,4 @@ const sequelize = new Sequelize({
   force: db.reset
 })
 
-module.exports = { sequelize }
+module.exports = sequelize
