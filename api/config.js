@@ -13,7 +13,8 @@ const config = {
       user: 'brdebr',
       paswd: 'devz',
       dialect: 'postgres',
-      reset: false
+      reset: false,
+      logging: false
     },
     secrets: {
       userPassHash: 10,
@@ -34,7 +35,8 @@ const config = {
       user: 'brdebr',
       paswd: 'devz',
       dialect: 'postgres',
-      reset: true
+      reset: true,
+      logging: false
     },
     secrets: {
       userPassHash: 10,
@@ -55,7 +57,8 @@ const config = {
       user: 'brdebr',
       paswd: 'devz',
       dialect: 'postgres',
-      reset: false
+      reset: false,
+      logging: false
     },
     secrets: {
       userPassHash: 10,

@@ -8,7 +8,8 @@ const sequelize = new Sequelize({
   username: db.user,
   password: db.passwd,
   operatorsAliases: false,
-  force: db.reset
+  force: db.reset,
+  logging: db.logging
 })
 
 module.exports = sequelize
