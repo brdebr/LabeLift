@@ -38,9 +38,9 @@ export default {
   },
   methods: {
     setDrawer(val) {
-      this.drawer.visible = val;
+      this.drawer.visible = val
     }
-  },
+  }
 }
 </script>
 <style lang="scss">

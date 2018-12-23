@@ -1,12 +1,12 @@
 <template>
   <v-navigation-drawer
     :mini-variant="miniVariant"
-    clipped
     :value="display"
+    clipped
     width="275"
     fixed
-    @input="val => $emit('setDrawer',val)"
     app
+    @input="val => $emit('setDrawer',val)"
   >
     <v-layout
       column
@@ -52,9 +52,9 @@ export default {
   },
   data() {
     return {
-      miniVariant: true,
+      miniVariant: true
     }
-  },
+  }
 }
 </script>
 

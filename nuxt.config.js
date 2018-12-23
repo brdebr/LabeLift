@@ -40,7 +40,10 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    name: 'chasing-dots',
+    color: '#ff5638',
+    background: 'white',
+    height: '4px'
   },
   serverMiddleware: [
     // API middleware
@@ -63,6 +66,8 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/toast',
     [
       'nuxt-fontawesome',
       {
@@ -87,7 +92,42 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+  toast: {
+    position: 'top-right',
+    duration: 5000
+  },
 
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'api/auth/login',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: false,
+          user: {
+            url: 'api/users/current',
+            method: 'get',
+            propertyName: 'user'
+          }
+        },
+        tokenRequired: true,
+        tokenType: 'Bearer'
+      },
+      google: {
+        client_id:
+          '659687284516-mrn6j32jvmmlg88ja8q0not76iihgpac.apps.googleusercontent.com'
+      }
+    },
+    redirect: {
+      login: '/',
+      logout: '/',
+      user: '/',
+      callback: '/'
+    }
+  },
   /*
    ** Build configuration
    */

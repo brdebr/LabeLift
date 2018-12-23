@@ -19,12 +19,14 @@
       <v-card-text v-if="!loading">
         <v-form>
           <v-text-field
+            v-model="form.email"
             prepend-icon="person"
             name="username"
             label="Username"
             type="text"/>
           <v-text-field
             id="password"
+            v-model="form.password"
             prepend-icon="lock"
             name="password"
             label="Password"
@@ -59,7 +61,7 @@
           round
           outline
           class="ml-3 mr-2"
-          @click="loading = true">
+          @click="login">
           Login
           <v-icon class="ml-1 pl-0">exit_to_app</v-icon>
         </v-btn>
@@ -72,7 +74,45 @@ export default {
   data() {
     return {
       dialog: false,
-      loading: false
+      loading: false,
+      form: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    async google() {
+      await this.$auth.loginWith('google').catch(e => {
+        this.$toast.show('Error', { icon: 'fingerprint' })
+      })
+    },
+    async login() {
+      try {
+        this.$toast.show('Logging in...', { icon: 'fingerprint' })
+        await this.$auth
+          .loginWith('local', {
+            data: {
+              email: this.form.email,
+              password: this.form.password
+            }
+          })
+          .catch(e => {
+            this.$toast.error('Failed Logging In', { icon: 'error_outline' })
+          })
+        if (this.$auth.loggedIn) {
+          this.$toast.success('Successfully Logged In', { icon: 'done' })
+        }
+      } catch (e) {
+        this.$toast.error('Username or Password wrong', { icon: 'error' })
+      }
+    },
+    check() {
+      console.log(this.$auth.loggedIn)
+    },
+    logout() {
+      this.$toast.show('Logging out...', { icon: 'fingerprint' })
+      this.$auth.logout()
     }
   }
 }

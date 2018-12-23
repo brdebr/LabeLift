@@ -75,7 +75,7 @@ exports.login = async (req, res, next) => {
             userName: user.name,
             userEmail: user.email
           },
-          token: 'Bearer ' + token
+          token
         })
       }
     })

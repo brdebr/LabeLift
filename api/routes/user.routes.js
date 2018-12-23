@@ -6,12 +6,10 @@ const usersController = require('../controllers/user')
 const router = express.Router()
 
 router.get(
-  '/users',
+  '/list',
   passport.authenticate('jwt', { session: false }),
   usersController.getUsers
 )
-
-router.get('/test', usersController.getUsers)
 
 router.get(
   '/current',
