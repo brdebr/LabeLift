@@ -17,7 +17,7 @@ exports.signup = (req, res, next) => {
   }
 
   bcrypt
-    .hash(password, secrets.userPassHash)
+    .hash(password, parseInt(process.env.USR_HASH))
     .then(hashedPw => {
       const user = new User({
         name: name,
@@ -63,7 +63,7 @@ exports.login = async (req, res, next) => {
             email: user.email,
             name: user.name
           },
-          secrets.jwtSecret,
+          parseInt(process.env.USR_HASH),
           {
             expiresIn: '1h'
           }
