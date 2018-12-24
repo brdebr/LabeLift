@@ -22,7 +22,7 @@
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer/>
-    <login-form>
+    <login-form v-if="!this.$auth.loggedIn">
       <v-btn
         depressed
         color="light-green darken-1">
@@ -30,13 +30,16 @@
         <v-icon>exit_to_app</v-icon>
       </v-btn>
     </login-form>
+    <toolbar-menu v-if="this.$auth.loggedIn"/>
   </v-toolbar>
 </template>
 <script>
-import LoginForm from '~/components/LoginForm'
+import LoginForm from '~/components/auth/LoginForm'
+import ToolbarMenu from '~/components/profile/ToolbarMenu'
 export default {
   components: {
-    LoginForm
+    LoginForm,
+    ToolbarMenu
   },
   data() {
     return {

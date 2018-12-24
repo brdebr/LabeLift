@@ -92,9 +92,17 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+
   toast: {
     position: 'top-right',
-    duration: 5000
+    duration: 20000,
+    action: {
+      icon: 'close',
+      class: 'white--text',
+      onClick: (e, toastObject) => {
+        toastObject.goAway(0)
+      }
+    }
   },
 
   auth: {

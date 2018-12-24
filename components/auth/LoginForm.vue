@@ -89,7 +89,6 @@ export default {
     },
     async login() {
       try {
-        this.$toast.show('Logging in...', { icon: 'fingerprint' })
         await this.$auth
           .loginWith('local', {
             data: {
@@ -101,19 +100,12 @@ export default {
             this.$toast.error('Failed Logging In', { icon: 'error_outline' })
           })
         if (this.$auth.loggedIn) {
-          this.$toast.success('Successfully Logged In', { icon: 'done' })
+          this.$toast.success('Successfully Logged In', { icon: 'done', className: 'green lighten-1' })
         }
       } catch (e) {
         this.$toast.error('Username or Password wrong', { icon: 'error' })
       }
     },
-    check() {
-      console.log(this.$auth.loggedIn)
-    },
-    logout() {
-      this.$toast.show('Logging out...', { icon: 'fingerprint' })
-      this.$auth.logout()
-    }
   }
 }
 </script>
