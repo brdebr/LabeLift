@@ -95,7 +95,7 @@ module.exports = {
 
   toast: {
     position: 'top-right',
-    duration: 20000,
+    duration: 5000,
     action: {
       icon: 'close',
       class: 'white--text',
