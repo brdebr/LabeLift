@@ -29,6 +29,9 @@
     },
     "USR_HASH": {
       "required": true
+    },
+    "API_URL": {
+      "required": true
     }
   },
   "formation": {
