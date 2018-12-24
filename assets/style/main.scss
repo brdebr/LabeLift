@@ -1,0 +1,38 @@
+html{
+  overflow-y: initial
+}
+
+.page-enter-active{
+  transition: all .5s ease-out;
+}
+.page-leave-active {
+  transition: all .5s ease-out;
+}
+// When enters the page transition from -30px to 0
+.page-enter{
+  opacity: 0;
+  transform: translateX(-30px);
+}
+// When leaves the page transition 0 to 30px
+.page-leave-to {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+// .stuff{
+//   color: #006d24;
+//   color: #424242;
+//   color: #82B1FF;
+//   color: #FF5252;
+//   color: #2196F3;
+//   color: #4CAF50;
+//   color: #FFC107;
+// }
+
+// primary: '#ee44aa',
+// secondary: '#424242',
+// accent: '#82B1FF',
+// error: '#FF5252',
+// info: '#2196F3',
+// success: '#4CAF50',
+// warning: '#FFC107
