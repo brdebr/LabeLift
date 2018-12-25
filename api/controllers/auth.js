@@ -75,7 +75,7 @@ exports.login = async (req, res, next) => {
             email: user.email,
             name: user.name
           },
-          secrets.jwtSecret,
+          parseInt(process.env.USR_HASH),
           {
             expiresIn: '1h'
           }
