@@ -14,7 +14,8 @@ const config = {
       paswd: 'devz',
       dialect: 'postgres',
       reset: false,
-      logging: false
+      logging: false,
+      ssl: false
     },
     secrets: {
       userPassHash: 10,
@@ -36,7 +37,8 @@ const config = {
       paswd: 'devz',
       dialect: 'postgres',
       reset: true,
-      logging: false
+      logging: false,
+      ssl: false
     },
     secrets: {
       userPassHash: 10,
@@ -51,18 +53,19 @@ const config = {
       name: 'LabeLift'
     },
     db: {
-      host: '127.0.0.1',
-      database: 'labelift',
+      host: process.env.DATABASE_HOST,
+      database: process.env.DATABASE,
       port: 5432,
-      user: 'brdebr',
-      paswd: 'devz',
+      user: process.env.DATABASE_USER,
+      paswd: process.env.DATABASE_PASSWD,
       dialect: 'postgres',
       reset: false,
-      logging: false
+      logging: false,
+      ssl: true
     },
     secrets: {
       userPassHash: 10,
-      jwtSecret: 'my-secretshhh',
+      jwtSecret: process.env.JWT_SECRET,
       dbUser: 'myusername',
       dbPasswd: 'mypassword'
     }

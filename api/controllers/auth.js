@@ -17,7 +17,7 @@ exports.signup = (req, res, next) => {
   }
 
   bcrypt
-    .hash(password, secrets.userPassHash)
+    .hash(password, parseInt(process.env.USR_HASH || secrets.userPassHash))
     .then(hashedPw => {
       const user = new User({
         name: name,

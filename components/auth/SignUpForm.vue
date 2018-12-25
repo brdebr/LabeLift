@@ -44,7 +44,7 @@
             type="password"
           />
           <v-text-field
-            id="password"
+            id="password2"
             v-model="form.password2"
             prepend-icon="vpn_key"
             hint="Make sure that both matches"
