@@ -1,0 +1,51 @@
+{
+  "name": "LabeLift",
+  "scripts": {
+  },
+  "env": {
+    "DATABASE": {
+      "required": true
+    },
+    "DATABASE_HOST": {
+      "required": true
+    },
+    "DATABASE_PASSWD": {
+      "required": true
+    },
+    "DATABASE_USER": {
+      "required": true
+    },
+    "HOST": {
+      "required": true
+    },
+    "JWT_SECRET": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "required": true
+    },
+    "USR_HASH": {
+      "required": true
+    },
+    "API_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "stack": "heroku-18",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

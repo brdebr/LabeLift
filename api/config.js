@@ -14,7 +14,8 @@ const config = {
       paswd: 'devz',
       dialect: 'postgres',
       reset: false,
-      logging: false
+      logging: false,
+      ssl: false
     },
     secrets: {
       userPassHash: 10,
@@ -36,7 +37,8 @@ const config = {
       paswd: 'devz',
       dialect: 'postgres',
       reset: true,
-      logging: false
+      logging: false,
+      ssl: false
     },
     secrets: {
       userPassHash: 10,
@@ -58,7 +60,8 @@ const config = {
       paswd: process.env.DATABASE_PASSWD,
       dialect: 'postgres',
       reset: false,
-      logging: false
+      logging: false,
+      ssl: true
     },
     secrets: {
       userPassHash: 10,
