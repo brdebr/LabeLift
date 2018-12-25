@@ -1,13 +1,9 @@
 <template>
   <v-layout
     column
-    justify-center
-    align-center>
+    >
     <v-flex
-      xs12
-      sm8
-      md6>
-      <div class="text-xs-center"/>
+      xs12>
       <v-card>
         <v-card-title class="headline">Welcome to the LabeLift</v-card-title>
         <v-card-text>
@@ -23,8 +19,7 @@
             <template
               slot="items"
               slot-scope="props">
-
-              <td>
+              <td class="tech-icon-cell">
                 <v-avatar
                   class="ma-1 mr-3 avatar-border"
                   size="45"
@@ -103,3 +98,13 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  .tech-icon-cell{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: auto;
+  }
+</style>
+

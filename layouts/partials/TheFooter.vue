@@ -18,9 +18,10 @@
 
       <v-btn
         round
+        outline
         href="https://github.com/brdebr/LabeLift"
         flat>
-        <span class="mr-2">Github</span>
+        <span class="mr-2 body-1">Source code</span>
         <fa
           :icon="['fab','github']"
           style="font-size: 24px" />

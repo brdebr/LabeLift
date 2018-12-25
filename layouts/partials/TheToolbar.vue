@@ -22,23 +22,32 @@
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer/>
-    <sign-up-form v-if="!this.$auth.loggedIn">
-      <v-btn
-        depressed
-        color="primary darken-1">
-        <span class="mr-1">Sign up</span>
-        <v-icon>person</v-icon>
+    <div class="hidden-sm-and-down">
+      <sign-up-form v-if="!this.$auth.loggedIn">
+        <v-btn
+          depressed
+          color="primary darken-1">
+          <span class="mr-2">Sign up</span>
+          <v-icon>person_add</v-icon>
+        </v-btn>
+      </sign-up-form>
+      <login-form v-if="!this.$auth.loggedIn">
+        <v-btn
+          depressed
+          color="light-green darken-1">
+          <span class="mr-2">Login</span>
+          <v-icon>exit_to_app</v-icon>
+        </v-btn>
+      </login-form>
+      <toolbar-menu v-if="this.$auth.loggedIn"/>
+    </div>
+    <div class="hidden-md-and-up">
+      <v-btn flat outline color="light-blue lighten-3" icon>
+        <v-icon>
+          vertical_split
+        </v-icon>
       </v-btn>
-    </sign-up-form>
-    <login-form v-if="!this.$auth.loggedIn">
-      <v-btn
-        depressed
-        color="light-green darken-1">
-        <span class="mr-2">Login</span>
-        <v-icon>exit_to_app</v-icon>
-      </v-btn>
-    </login-form>
-    <toolbar-menu v-if="this.$auth.loggedIn"/>
+    </div>
   </v-toolbar>
 </template>
 <script>
