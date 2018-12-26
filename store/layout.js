@@ -1,8 +1,18 @@
 export const state = () => ({
-  list: []
+  drawer: {
+    active: true,
+    mini: true
+  },
+  rDrawer: {
+    active: false,
+    contentComponent: 'VuetifyLogo'
+  }
 })
 
 export const mutations = {
+  toggleDrawer(state) {
+    state.drawer.active = !state.drawer.active
+  },
   add(state, text) {
     state.list.push({
       text: text,
@@ -16,4 +26,10 @@ export const mutations = {
     todo.done = !todo.done
   }
 }
+
+// export const getters = {
+//   drawerIsActive(state) {
+//     return state.drawer.active
+//   }
+// }
 // VUEX PLACEHOLDER EXAMPLE

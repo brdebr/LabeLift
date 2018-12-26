@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  data() {
+  asyncData() {
     return {
       headers: [
         {
@@ -95,7 +95,10 @@ export default {
         }
       ]
     }
-  }
+  },
+  // mounted(){
+  //   console.log(this)
+  // }
 }
 </script>
 <style lang="scss" scoped>

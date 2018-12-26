@@ -40,10 +40,8 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: {
-    name: 'chasing-dots',
-    color: '#ff5638',
-    background: 'white',
-    height: '4px'
+    color: '#4CAF50',
+    height: '5px'
   },
   serverMiddleware: [
     // API middleware

@@ -1,10 +1,12 @@
 <template>
   <v-navigation-drawer
-    :mini-variant="miniVariant"
-    :value="$store.state.layout.drawer.active"
+    :value="true"
     clipped
     width="275"
+    class="light-blue lighten-5"
     fixed
+    right
+    stateless
     app
     @input="val => $emit('setDrawer',val)"
   >
@@ -32,14 +34,6 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-      <v-btn
-        icon
-        outline
-        class="mx-auto mb-3 light-blue--text text--darken-3"
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'" />
-      </v-btn>
     </v-layout>
   </v-navigation-drawer>
 </template>
@@ -48,16 +42,6 @@ export default {
   props: {
     items: { type: Array, default: () => [] }
   },
-  data() {
-    return {
-      miniVariant: true
-    }
-  },
-  // computed: {
-  //   active() {
-  //     return this.$store.state.layout.drawer.active
-  //   }
-  // },
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <v-toolbar
     :clipped-left="clipped"
+    clipped-right
     fixed
     dark
     height="64"
@@ -10,7 +11,7 @@
     <v-toolbar-side-icon
       class="light-blue--text text--lighten-3"
       outline
-      @click="$emit('toggleDrawer')" />
+      @click="$store.commit('layout/toggleDrawer')" />
 
     <v-toolbar-title>
       <nuxt-link
@@ -81,6 +82,9 @@ export default {
         loading: false
       }
     }
-  }
+  },
+  // mounted(){
+  //   console.log(this)
+  // }
 }
 </script>
