@@ -27,12 +27,12 @@
             label="Name"
             type="text"/>
           <v-text-field
-          v-model="form.email"
-          prepend-icon="email"
-          hint="You will receive a confirmation email in this address"
-          name="email"
-          label="Email"
-          type="text"/>
+            v-model="form.email"
+            prepend-icon="email"
+            hint="You will receive a confirmation email in this address"
+            name="email"
+            label="Email"
+            type="text"/>
           <v-text-field
             id="password"
             v-model="form.password"
@@ -46,10 +46,10 @@
           <v-text-field
             id="password2"
             v-model="form.password2"
+            :rules="[v => !!v || 'Password can\'t be empty']"
             prepend-icon="vpn_key"
             hint="Make sure that both matches"
             name="password"
-            :rules="[v => !!v || 'Password can\'t be null']"
             label="Confirm password"
             type="password"
           />
@@ -107,20 +107,26 @@ export default {
   methods: {
     async signUp() {
       try {
-        this.$axios.post('/api/auth/signup',this.form)
-        .then(result => {
-          if(result.status === 201){
-            this.$toast.success('Successfully Signed Up', { icon: 'done', className: 'green lighten-1' })
+        this.$axios.post('/api/auth/signup', this.form).then(result => {
+          if (result.status === 201) {
+            this.$toast.success('Successfully Signed Up', {
+              icon: 'done',
+              className: 'green lighten-1'
+            })
             this.$auth
               .loginWith('local', {
                 data: {
                   email: this.form.email,
                   password: this.form.password
                 }
-              }).then(result => {
-                this.$toast.success('Logged in!', { icon: 'fingerprint', className: 'green lighten-1' })
+              })
+              .then(result => {
+                this.$toast.success('Logged in!', {
+                  icon: 'fingerprint',
+                  className: 'green lighten-1'
+                })
                 this.clear()
-                this.dialog = false;
+                this.dialog = false
               })
           }
         })
@@ -128,12 +134,12 @@ export default {
         this.$toast.error('Something went wrong :/', { icon: 'error' })
       }
     },
-    submit () {
-        if (this.$refs.form.validate()) {
-          this.signUp()
-        }
-      },
-    clear () {
+    submit() {
+      if (this.$refs.form.validate()) {
+        this.signUp()
+      }
+    },
+    clear() {
       this.$refs.form.reset()
     }
   }

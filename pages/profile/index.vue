@@ -11,7 +11,7 @@
               User ID:
             </span>
             <span>
-              {{ this.$auth.user.id}}
+              {{ this.$auth.user.id }}
             </span>
           </p>
           <p>
@@ -19,7 +19,7 @@
               User name:
             </span>
             <span>
-              {{ this.$auth.user.name}}
+              {{ this.$auth.user.name }}
             </span>
           </p>
           <p>
@@ -27,7 +27,7 @@
               User email:
             </span>
             <span>
-              {{ this.$auth.user.email}}
+              {{ this.$auth.user.email }}
             </span>
           </p>
         </v-card-text>

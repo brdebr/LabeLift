@@ -1,7 +1,7 @@
 <template>
   <v-layout
     column
-    >
+  >
     <v-flex
       xs12>
       <v-card>

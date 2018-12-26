@@ -100,12 +100,15 @@ export default {
             this.$toast.error('Failed Logging In', { icon: 'error_outline' })
           })
         if (this.$auth.loggedIn) {
-          this.$toast.success('Successfully Logged In', { icon: 'done', className: 'green lighten-1' })
+          this.$toast.success('Successfully Logged In', {
+            icon: 'done',
+            className: 'green lighten-1'
+          })
         }
       } catch (e) {
         this.$toast.error('Username or Password wrong', { icon: 'error' })
       }
-    },
+    }
   }
 }
 </script>

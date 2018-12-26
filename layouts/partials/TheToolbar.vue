@@ -42,7 +42,11 @@
       <toolbar-menu v-if="this.$auth.loggedIn"/>
     </div>
     <div class="hidden-md-and-up">
-      <v-btn flat outline color="light-blue lighten-3" icon>
+      <v-btn
+        flat
+        outline
+        color="light-blue lighten-3"
+        icon>
         <v-icon>
           vertical_split
         </v-icon>

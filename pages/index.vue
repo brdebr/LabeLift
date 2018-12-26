@@ -1,7 +1,7 @@
 <template>
   <v-layout
     column
-    >
+  >
     <v-flex
       xs12>
       <v-card>
@@ -99,12 +99,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .tech-icon-cell{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
-    height: auto;
-  }
+.tech-icon-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: auto;
+}
 </style>
-

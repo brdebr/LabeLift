@@ -100,6 +100,7 @@ module.exports = {
     duration: 5000,
     action: {
       icon: 'close',
+      // TODO: Do a hover effect with css
       class: 'white--text',
       onClick: (e, toastObject) => {
         toastObject.goAway(0)
