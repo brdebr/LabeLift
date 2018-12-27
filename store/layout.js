@@ -3,9 +3,8 @@ export const state = () => ({
     active: true,
     mini: true
   },
-  rDrawer: {
-    active: false,
-    contentComponent: 'VuetifyLogo'
+  mobileDrawer: {
+    active: false
   }
 })
 
@@ -13,23 +12,13 @@ export const mutations = {
   toggleDrawer(state) {
     state.drawer.active = !state.drawer.active
   },
-  add(state, text) {
-    state.list.push({
-      text: text,
-      done: false
-    })
+  setDrawer(state, val) {
+    state.drawer.active = val
   },
-  remove(state, { todo }) {
-    state.list.splice(state.list.indexOf(todo), 1)
+  toggleMobileDrawer(state) {
+    state.mobileDrawer.active = !state.mobileDrawer.active
   },
-  toggle(state, todo) {
-    todo.done = !todo.done
+  setMobileDrawer(state, val) {
+    state.mobileDrawer.active = val
   }
 }
-
-// export const getters = {
-//   drawerIsActive(state) {
-//     return state.drawer.active
-//   }
-// }
-// VUEX PLACEHOLDER EXAMPLE

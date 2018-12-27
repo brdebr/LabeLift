@@ -1,7 +1,6 @@
 <template>
   <v-app>
-    <TheToolbar
-      @toggleDrawer="drawer.visible = !drawer.visible"/>
+    <TheToolbar/>
     <TheDrawer
       :items="drawer.items"
     />
@@ -10,24 +9,22 @@
         <nuxt />
       </v-container>
     </v-content>
-    <TheRDrawer
-      :display="drawer.visible"
-      :items="drawer.items"/>
+    <TheMobileDrawer/>
     <TheFooter/>
   </v-app>
 </template>
 <script>
 import TheToolbar from '~/layouts/partials/TheToolbar'
 import TheDrawer from '~/layouts/partials/TheDrawer'
-import TheRDrawer from '~/layouts/partials/TheRDrawer'
+import TheMobileDrawer from '~/layouts/partials/TheMobileDrawer'
 import TheFooter from '~/layouts/partials/TheFooter'
 
 export default {
   components: {
     TheToolbar,
     TheDrawer,
-    TheFooter,
-    TheRDrawer
+    TheMobileDrawer,
+    TheFooter
   },
   data() {
     return {
@@ -38,7 +35,7 @@ export default {
         ]
       }
     }
-  },
+  }
 }
 </script>
 <style lang="scss">

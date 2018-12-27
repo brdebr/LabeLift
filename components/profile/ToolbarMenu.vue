@@ -6,6 +6,7 @@
     <v-btn
       slot="activator"
       round
+      :class="lg ? 'mx-auto' : '' "
       light
       color="grey lighten-3">
       <v-layout
@@ -38,9 +39,9 @@
         </v-list-tile-content>
 
         <v-list-tile-action>
-          <fa 
-            :icon="item.icon.name" 
-            color="#BDBDBD" 
+          <fa
+            :icon="item.icon.name"
+            color="#BDBDBD"
             fixed-width/>
         </v-list-tile-action>
         <!-- <v-divider v-if="item.divider" /> -->
@@ -74,9 +75,14 @@ export default {
       ]
     }
   },
+    props: {
+    lg: {
+      type: Boolean,
+      default: false
+    },
+  },
   methods: {
     profile() {
-      console.log(this)
       this.$router.push('/profile')
     },
     async logout() {

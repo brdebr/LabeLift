@@ -9,6 +9,8 @@
     <v-btn
       slot="activator"
       depressed
+      dark
+      :large="lg"
       color="light-green darken-1">
       <span class="mr-2">Login</span>
       <v-icon>exit_to_app</v-icon>
@@ -82,6 +84,12 @@ export default {
         password: ''
       }
     }
+  },
+  props: {
+    lg: {
+      type: Boolean,
+      default: false
+    },
   },
   methods: {
     async google() {

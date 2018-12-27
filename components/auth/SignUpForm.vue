@@ -9,6 +9,8 @@
     <v-btn
       slot="activator"
       depressed
+      dark
+      :large="lg"
       color="primary darken-1">
       <span class="mr-2">Sign up</span>
       <v-icon>person_add</v-icon>
@@ -105,6 +107,12 @@ export default {
         password2: ''
       }
     }
+  },
+    props: {
+    lg: {
+      type: Boolean,
+      default: false
+    },
   },
   methods: {
     async signUp() {
