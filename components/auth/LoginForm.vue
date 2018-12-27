@@ -25,8 +25,8 @@
             v-model="form.email"
             validate-on-blur
             prepend-icon="person"
-            name="username"
-            label="Username"
+            name="email"
+            label="Email"
             type="text"/>
           <v-text-field
             id="password"
