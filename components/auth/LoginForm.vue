@@ -23,17 +23,21 @@
         <v-form>
           <v-text-field
             v-model="form.email"
+            validate-on-blur
             prepend-icon="person"
             name="username"
             label="Username"
             type="text"/>
           <v-text-field
             id="password"
+            :append-icon="hidePassword ? 'visibility' : 'visibility_off'"
+            :type="hidePassword ? 'password' : 'text'"
             v-model="form.password"
+            validate-on-blur
             prepend-icon="lock"
             name="password"
             label="Password"
-            type="password"
+            @click:append="hidePassword = !hidePassword"
           />
         </v-form>
       </v-card-text>
@@ -78,6 +82,7 @@ export default {
     return {
       dialog: false,
       loading: false,
+      hidePassword: true,
       form: {
         email: '',
         password: ''

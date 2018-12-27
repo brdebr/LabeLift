@@ -14,7 +14,9 @@
 
     <v-list
       subheader>
-      <v-subheader class="text-no-wrap text-truncate" inset>{{ this.$auth.user.name }}</v-subheader>
+      <v-subheader 
+        class="text-no-wrap text-truncate" 
+        inset>{{ this.$auth.user.name }}</v-subheader>
       <v-divider/>
 
       <v-list-tile

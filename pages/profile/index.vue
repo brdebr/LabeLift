@@ -4,10 +4,19 @@
     <v-flex
       xs12>
       <v-card>
-        <v-card-title class="headline">Profile</v-card-title>
+        <v-card-title class="headline elevation-1">
+          <v-flex xs10>
+            Profile
+          </v-flex>
+          <v-flex 
+            xs2 
+            class="subheading text-xs-right pr-2">
+            ID # {{ this.$auth.user.id }}
+          </v-flex>
+        </v-card-title>
         <v-card-text>
           <p>
-            <span>
+            <span >
               User ID:
             </span>
             <span>

@@ -27,12 +27,14 @@
             name="name"
             counter="200"
             required
+            validate-on-blur
             label="Name"
             type="text"/>
           <v-text-field
             v-model="form.email"
             prepend-icon="email"
             hint="You will receive a confirmation email in this address"
+            validate-on-blur
             name="email"
             label="Email"
             type="text"/>
@@ -40,6 +42,7 @@
             id="password"
             v-model="form.password"
             prepend-icon="lock"
+            validate-on-blur
             hint="6 characters minimum"
             persistent-hint
             name="password"
@@ -51,6 +54,7 @@
             v-model="form.password2"
             :rules="[v => !!v || 'Password can\'t be empty']"
             prepend-icon="vpn_key"
+            validate-on-blur
             hint="Make sure that both matches"
             name="password"
             label="Confirm password"
@@ -84,10 +88,10 @@
           flat
           round
           outline
-          class="ml-3 mr-2"
+          class="ml-3 mr-2 pr-3"
           @click="submit">
           Sign up
-          <v-icon class="ml-1 pl-0 mb-1">check</v-icon>
+          <v-icon class="pl-0 check-icon">check</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -148,3 +152,9 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.check-icon {
+  margin-bottom: 2px;
+  margin-left: 8px;
+}
+</style>
