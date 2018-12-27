@@ -4,7 +4,6 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 
 const sequelize = require('./database/')
-const initModels = require('./models/')
 
 // Create express instance
 const app = express()
