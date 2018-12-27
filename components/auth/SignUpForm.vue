@@ -6,11 +6,13 @@
     max-width="600px"
     class="login-dialog"
   >
-    <template slot="activator">
-      <slot>
-        Sign up
-      </slot>
-    </template>
+    <v-btn
+      slot="activator"
+      depressed
+      color="primary darken-1">
+      <span class="mr-2">Sign up</span>
+      <v-icon>person_add</v-icon>
+    </v-btn>
 
     <v-card class="login-dialog">
       <v-card-title class="justify-center">
