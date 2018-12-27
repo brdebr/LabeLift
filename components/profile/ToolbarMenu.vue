@@ -3,28 +3,18 @@
     bottom
     transition="slide-y-transition"
     left>
-    <v-btn
+
+    <v-avatar
       slot="activator"
-      round
-      light
-      color="grey lighten-3">
-      <v-layout
-        align-center
-        row>
-        <span class="mx-3">{{ this.$auth.user.name }}</span>
-        <v-avatar
-          color="primary"
-          size="27">
-          <v-icon
-            size="17"
-            color="white">account_circle</v-icon>
-        </v-avatar>
-      </v-layout>
-    </v-btn>
+      color="secondary">
+      <v-icon>
+        account_circle
+      </v-icon>
+    </v-avatar>
 
     <v-list
       subheader>
-      <v-subheader inset>Profile Menu</v-subheader>
+      <v-subheader class="text-no-wrap text-truncate" inset>{{ this.$auth.user.name }}</v-subheader>
       <v-divider/>
 
       <v-list-tile
@@ -38,9 +28,9 @@
         </v-list-tile-content>
 
         <v-list-tile-action>
-          <fa 
-            :icon="item.icon.name" 
-            color="#BDBDBD" 
+          <fa
+            :icon="item.icon.name"
+            color="#BDBDBD"
             fixed-width/>
         </v-list-tile-action>
         <!-- <v-divider v-if="item.divider" /> -->
@@ -76,7 +66,6 @@ export default {
   },
   methods: {
     profile() {
-      console.log(this)
       this.$router.push('/profile')
     },
     async logout() {

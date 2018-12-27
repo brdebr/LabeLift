@@ -9,6 +9,7 @@
     <v-btn
       slot="activator"
       depressed
+      dark
       color="primary darken-1">
       <span class="mr-2">Sign up</span>
       <v-icon>person_add</v-icon>

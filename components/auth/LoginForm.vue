@@ -9,6 +9,7 @@
     <v-btn
       slot="activator"
       depressed
+      dark
       color="light-green darken-1">
       <span class="mr-2">Login</span>
       <v-icon>exit_to_app</v-icon>

@@ -6,7 +6,7 @@
     width="275"
     fixed
     app
-    @input="val => $emit('setDrawer',val)"
+    @input="val => $store.commit('layout/setDrawer',val)"
   >
     <v-layout
       column
@@ -52,12 +52,7 @@ export default {
     return {
       miniVariant: true
     }
-  },
-  // computed: {
-  //   active() {
-  //     return this.$store.state.layout.drawer.active
-  //   }
-  // },
+  }
 }
 </script>
 
