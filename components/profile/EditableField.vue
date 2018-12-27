@@ -1,11 +1,12 @@
 <template>
-  <v-scroll-y-transition mode="out-in">
-    <v-layout 
-      v-if="!editing" 
-      key="display" 
-      row 
+  <v-scroll-x-transition mode="out-in">
+    <v-layout
+      v-if="!editing"
+      key="display"
+      row
+      style="height: 68px"
       align-center>
-      <v-flex>
+      <v-flex xs11>
         <v-layout>
           <v-flex xs2>
             <span class="body-2 mr-3 xs3">{{ fieldName }} :</span>
@@ -15,11 +16,11 @@
           </v-flex>
         </v-layout>
       </v-flex>
-      <v-flex xs1 >
-        <v-btn 
-          icon 
-          outline 
-          color="secondary darken-1" 
+      <v-flex>
+        <v-btn
+          icon
+          outline
+          color="secondary darken-1"
           @click="editing = !editing">
           <v-icon>
             edit
@@ -27,38 +28,39 @@
         </v-btn>
       </v-flex>
     </v-layout>
-    <v-layout 
-      v-else 
-      key="edit" 
-      row 
+    <v-layout
+      v-else
+      key="edit"
+      row
       align-center>
-      <v-flex>
+      <v-flex xs11>
         <v-text-field
+          ref="field"
           v-model="newValue"
           :prepend-icon="icon"
           :name="fieldName"
           :label="fieldName"
           clearable
           validate-on-blur
-          class="mr-2 "
+          class="mr-2"
           type="text"/>
       </v-flex>
-      <v-flex 
-        xs1 
-        class="pl-3">
-        <v-btn 
-          icon 
-          color="secondary darken-1" 
+      <v-flex
+      >
+        <v-btn
+          icon
+          color="secondary darken-1"
           @click="reset">
           <v-icon>
             cached
           </v-icon>
         </v-btn>
       </v-flex>
-      <v-flex xs1 >
-        <v-btn 
-          icon 
-          color="success darken-1" 
+      <v-flex
+      >
+        <v-btn
+          icon
+          color="success darken-1"
           @click="sendUpdate">
           <v-icon>
             check
@@ -66,7 +68,7 @@
         </v-btn>
       </v-flex>
     </v-layout>
-  </v-scroll-y-transition>
+  </v-scroll-x-transition>
 </template>
 
 <script>
@@ -101,6 +103,7 @@ export default {
     },
     reset() {
       this.newValue = this.value
+      this.$refs.field.focus()
     }
   }
 }
