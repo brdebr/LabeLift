@@ -1,5 +1,5 @@
 <template>
-      <v-card height="100%">
+      <v-card height="100%" width="100%">
         <v-card-title class="headline elevation-1">
           <v-flex xs10>
             Profile
@@ -12,11 +12,13 @@
         </v-card-title>
         <v-card-text style="overflow-y: -webkit-paged-y">
           <v-layout
+            fill-height
+            wrap
             row>
-            <v-flex xs3>
+            <v-flex xs12 md3>
               <v-card>
                 <v-img
-                  src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+                  src="desert.jpg"
                   aspect-ratio="0.90"
                 />
                 <v-card-actions>
@@ -31,7 +33,8 @@
               </v-card>
             </v-flex>
             <v-flex
-              xs9
+              xs12
+              md9
               class="pl-4">
               <profile-form/>
             </v-flex>

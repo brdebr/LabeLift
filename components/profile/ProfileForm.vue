@@ -1,67 +1,7 @@
 <template>
-  <v-layout
-      v-if="!editing"
-      key="display"
-      column
-      >
-      <v-flex class="display-row" xs12>
-        <v-layout
-          row>
-          <v-flex shrink class="body-2 lbl-field text-no-wrap pr-2">
-            Name :
-          </v-flex>
-          <v-flex xs4 class="body-1 text-xs-left pr-3 text-no-wrap">
-            {{ user.name }}
-          </v-flex>
-          <v-flex shrink class="body-2 pr-3 lbl-lg-field text-no-wrap">
-            Last name :
-          </v-flex>
-          <v-flex class="body-1 text-xs-left text-truncate">
-            {{ user.surname }}
-          </v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex class="display-row" xs12>
-        <v-layout
-          row>
-          <v-flex shrink class="body-2 lbl-field text-no-wrap pr-2">
-            Email :
-          </v-flex>
-          <v-flex class="body-1 text-xs-left pr-3 text-no-wrap">
-            {{ user.email }}
-          </v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex class="display-row" xs12>
-        <v-layout
-          >
-          <v-flex shrink class="body-2 lbl-field text-no-wrap pr-2">
-            Birthday :
-          </v-flex>
-          <v-flex xs4 class="body-1 text-xs-left pr-3 text-no-wrap">
-            {{ user.bday }}
-          </v-flex>
-          <v-flex shrink class="body-2 pr-3 lbl-lg-field text-no-wrap">
-            Gender :
-          </v-flex>
-          <v-flex class="body-1 text-xs-left text-truncate">
-            {{ user.gender }}
-          </v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex class="display-row" xs12>
-        <v-layout
-          wrap
-          row>
-          <v-flex xs12 class="body-2 lbl-field text-no-wrap pr-2">
-            Bio :
-          </v-flex>
-          <v-flex xs12 class="body-1" style="white-space:pre-line">
-              {{ user.bio.trim() }}
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+  <div class="d-flex">
+    Test
+  </div>
 </template>
 
 <script>
@@ -107,15 +47,6 @@ export default {
 }
 </script>
 
-<style>
-.lbl-field{
-  flex-basis: 75px;
-}
-.lbl-lg-field{
-  flex-basis: 100px;
-  text-align: right;
-}
-.display-row{
-  height: 30px;
-}
+<style lang="scss">
+
 </style>

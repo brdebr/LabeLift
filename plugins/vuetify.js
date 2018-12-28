@@ -13,5 +13,10 @@ Vue.use(Vuetify, {
     success: colors.lightGreen.accent4
   },
   customProperties: true,
-  iconfont: 'md'
+  iconfont: 'md',
+  minifyTheme: function(css) {
+    return process.env.NODE_ENV === 'production'
+      ? css.replace(/[\s|\r\n|\r|\n]/g, '')
+      : css
+  }
 })

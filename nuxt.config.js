@@ -51,12 +51,15 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.styl'],
+  css: [
+    '~/assets/style/app.styl',
+    '@fortawesome/fontawesome-svg-core/styles.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vuetify'],
+  plugins: ['@/plugins/vuetify', '@/plugins/fontawesome'],
 
   /*
    ** Nuxt.js modules
@@ -134,6 +137,7 @@ module.exports = {
       login: '/',
       logout: '/',
       user: '/',
+      home: '/profile',
       callback: '/'
     }
   },
