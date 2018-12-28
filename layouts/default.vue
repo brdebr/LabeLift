@@ -5,7 +5,7 @@
       :items="drawer.items"
     />
     <v-content class="grey lighten-3">
-      <v-container>
+      <v-container fill-height>
         <nuxt />
       </v-container>
     </v-content>

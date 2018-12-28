@@ -1,9 +1,5 @@
 <template>
-  <v-layout
-    column>
-    <v-flex
-      xs12>
-      <v-card>
+      <v-card height="100%">
         <v-card-title class="headline elevation-1">
           <v-flex xs10>
             Profile
@@ -14,7 +10,7 @@
             ID # {{ this.$auth.user.id }}
           </v-flex>
         </v-card-title>
-        <v-card-text>
+        <v-card-text style="overflow-y: -webkit-paged-y">
           <v-layout
             row>
             <v-flex xs3>
@@ -37,32 +33,19 @@
             <v-flex
               xs9
               class="pl-4">
-              <editable-field
-                v-model="user.name"
-                field-name="Name"
-                icon="person"/>
-              <editable-field
-                v-model="user.email"
-                field-name="Email"
-                icon="email"/>
-              <editable-field
-                v-model="user.bday"
-                field-name="Birthday"
-                icon="event"/>
+              <profile-form/>
             </v-flex>
           </v-layout>
         </v-card-text>
       </v-card>
-    </v-flex>
-  </v-layout>
 </template>
 <script>
-import EditableField from '~/components/profile/EditableField'
+import ProfileForm from '~/components/profile/ProfileForm'
 
 export default {
   middleware: 'auth',
   components: {
-    EditableField
+    ProfileForm
   },
   watch: {
     user: {
