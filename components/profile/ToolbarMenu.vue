@@ -72,7 +72,7 @@ export default {
     },
     async logout() {
       await this.$auth.logout()
-      this.$toast.show('Logged out...', { icon: 'fingerprint' })
+      this.$snackbar.show('Logged out...', { icon: 'fingerprint' })
     }
   }
 }

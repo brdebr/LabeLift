@@ -116,7 +116,7 @@ export default {
       try {
         this.$axios.post('/api/auth/signup', this.form).then(result => {
           if (result.status === 201) {
-            this.$toast.success('Successfully Signed Up', {
+            this.$snackbar.success('Successfully Signed Up', {
               icon: 'done',
               className: 'green lighten-1'
             })
@@ -128,7 +128,7 @@ export default {
                 }
               })
               .then(result => {
-                this.$toast.success('Logged in!', {
+                this.$snackbar.success('Logged in!', {
                   icon: 'fingerprint',
                   className: 'green lighten-1'
                 })
@@ -138,7 +138,7 @@ export default {
           }
         })
       } catch (e) {
-        this.$toast.error('Something went wrong :/', { icon: 'error' })
+        this.$snackbar.error('Something went wrong :/', { icon: 'error' })
       }
     },
     submit() {

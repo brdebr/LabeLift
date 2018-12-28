@@ -59,7 +59,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vuetify', '@/plugins/fontawesome'],
+  plugins: ['@/plugins/vuetify', '@/plugins/fontawesome', '@/plugins/snacks'],
 
   /*
    ** Nuxt.js modules
@@ -68,7 +68,6 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    '@nuxtjs/toast',
     [
       'nuxt-fontawesome',
       {
@@ -94,19 +93,6 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL: process.env.API_URL || 'http://localhost:3000',
     https: process.env.NODE_ENV === 'production'
-  },
-
-  toast: {
-    position: 'top-right',
-    duration: 5000,
-    action: {
-      icon: 'close',
-      // TODO: Do a hover effect with css
-      class: 'white--text',
-      onClick: (e, toastObject) => {
-        toastObject.goAway(0)
-      }
-    }
   },
 
   auth: {
