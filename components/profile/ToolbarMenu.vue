@@ -14,8 +14,8 @@
 
     <v-list
       subheader>
-      <v-subheader 
-        class="text-no-wrap text-truncate" 
+      <v-subheader
+        class="text-no-wrap text-truncate"
         inset>{{ this.$auth.user.name }}</v-subheader>
       <v-divider/>
 
@@ -72,7 +72,7 @@ export default {
     },
     async logout() {
       await this.$auth.logout()
-      this.$toast.show('Logged out...', { icon: 'fingerprint' })
+      this.$toast('Logged out...', { icon: 'fingerprint' })
     }
   }
 }

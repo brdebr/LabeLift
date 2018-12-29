@@ -92,7 +92,7 @@ export default {
   methods: {
     async google() {
       await this.$auth.loginWith('google').catch(e => {
-        this.$toast.show('Error', { icon: 'fingerprint' })
+        this.$toast('Error', { icon: 'fingerprint' })
       })
     },
     async login() {
