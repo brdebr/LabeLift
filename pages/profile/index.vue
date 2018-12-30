@@ -21,16 +21,26 @@
           xs12 
           md3>
           <v-card>
-            <v-img
-              src="desert.jpg"
+            <v-card-media
+              :src="image"
+              :lazy-src="image"
               aspect-ratio="0.90"
-            />
+            ></v-card-media>
+            <v-divider/>
             <v-card-actions>
-              <v-btn icon>
+              <v-btn 
+                block 
+                flat 
+                outline 
+                color="amber darken-2">
                 <v-icon>clear</v-icon>
               </v-btn>
               <v-spacer/>
-              <v-btn icon>
+              <v-btn 
+                block 
+                flat 
+                outline 
+                color="secondary">
                 <v-icon>edit</v-icon>
               </v-btn>
             </v-card-actions>
@@ -68,7 +78,8 @@ export default {
         name: 'Bryann',
         email: 'bryan@test.com',
         bday: '10/11/12'
-      }
+      },
+      image: require('~/assets/images/placeholder-profile.jpg')
     }
   }
 }
