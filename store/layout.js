@@ -11,5 +11,8 @@ export const mutations = {
   },
   setDrawer(state, val) {
     state.drawer.active = val
+  },
+  toggleMini(state) {
+    state.drawer.mini = !state.drawer.mini
   }
 }
