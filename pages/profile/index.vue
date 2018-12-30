@@ -1,46 +1,50 @@
 <template>
-      <v-card height="100%" width="100%">
-        <v-card-title class="headline elevation-1">
-          <v-flex xs10>
-            Profile
-          </v-flex>
-          <v-flex
-            xs2
-            class="subheading text-xs-right pr-2">
-            ID # {{ this.$auth.user.id }}
-          </v-flex>
-        </v-card-title>
-        <v-card-text style="overflow-y: -webkit-paged-y">
-          <v-layout
-            fill-height
-            wrap
-            row>
-            <v-flex xs12 md3>
-              <v-card>
-                <v-img
-                  src="desert.jpg"
-                  aspect-ratio="0.90"
-                />
-                <v-card-actions>
-                  <v-btn icon>
-                    <v-icon>clear</v-icon>
-                  </v-btn>
-                  <v-spacer/>
-                  <v-btn icon>
-                    <v-icon>edit</v-icon>
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-flex>
-            <v-flex
-              xs12
-              md9
-              class="pl-4">
-              <profile-form/>
-            </v-flex>
-          </v-layout>
-        </v-card-text>
-      </v-card>
+  <v-card 
+    height="100%" 
+    width="100%">
+    <v-card-title class="headline elevation-1">
+      <v-flex xs10>
+        Profile
+      </v-flex>
+      <v-flex
+        xs2
+        class="subheading text-xs-right pr-2">
+        ID # {{ this.$auth.user.id }}
+      </v-flex>
+    </v-card-title>
+    <v-card-text style="overflow-y: -webkit-paged-y">
+      <v-layout
+        fill-height
+        wrap
+        row>
+        <v-flex 
+          xs12 
+          md3>
+          <v-card>
+            <v-img
+              src="desert.jpg"
+              aspect-ratio="0.90"
+            />
+            <v-card-actions>
+              <v-btn icon>
+                <v-icon>clear</v-icon>
+              </v-btn>
+              <v-spacer/>
+              <v-btn icon>
+                <v-icon>edit</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+        <v-flex
+          xs12
+          md9
+          class="pl-4">
+          <profile-form/>
+        </v-flex>
+      </v-layout>
+    </v-card-text>
+  </v-card>
 </template>
 <script>
 import ProfileForm from '~/components/profile/ProfileForm'

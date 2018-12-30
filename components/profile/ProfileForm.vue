@@ -15,8 +15,7 @@ export default {
         email: 'brrr@sss.com',
         bday: '09/08/1993',
         gender: 'Male',
-        bio:
-        `Aaaahora escucha la historia de mi vida de como el destino cambió mi movida, sin comerlo ni beberlo llegué a ser el chuleta de un barrio llamado Bell Air...
+        bio: `Aaaahora escucha la historia de mi vida de como el destino cambió mi movida, sin comerlo ni beberlo llegué a ser el chuleta de un barrio llamado Bell Air...
           Aaal oeste en Philadelphia crecía y vivía sin hacer mucho caso a la policia juugaba al basket sin cansarme demasiado porque por las noches me sacaba el graduado.Cierto día, jugando al basket con amigos unos tipos del barrio me metieron en un lío y mi madre me decía una y otra veeez:
           -¡Con tu tío y tu tía irás a Bell Air!-
           Después de rogarla e incluso la besé se dió media vuelta y me trató como un bebé.
@@ -43,10 +42,9 @@ export default {
         `
       }
     }
-  },
+  }
 }
 </script>
 
 <style lang="scss">
-
 </style>
