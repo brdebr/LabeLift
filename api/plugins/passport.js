@@ -26,12 +26,14 @@ module.exports = passport => {
             let exp = moment.unix(payload.exp)
             safeUser.expHuman = now.to(exp)
             safeUser.exp = exp.format('DD/MM/YYYY - hh:mm:ss')
-            return done(null, safeUser)
+            done(null, safeUser)
+            return safeUser
           }
-          return done(null, false)
+          done(null, false)
         })
         .catch(err => {
           console.log(err)
+          done(err)
         })
     })
   )
