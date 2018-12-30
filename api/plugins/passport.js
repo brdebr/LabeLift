@@ -1,7 +1,7 @@
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJWT = require('passport-jwt').ExtractJwt
 const moment = require('moment')
-const User = require('../models/user')
+const { User } = require('../database/models/')
 
 const { secrets } = require('../config')
 

@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs')
 const { secrets } = require('../config')
 const jwt = require('jsonwebtoken')
 
-const User = require('../models/user')
+const { User } = require('../database/models/')
 
 exports.signup = (req, res, next) => {
   const email = req.body.email
