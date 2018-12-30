@@ -51,8 +51,18 @@ sequelize
     console.log(err)
   })
 
-// Export the server middleware
-module.exports = {
-  path: '/api',
-  handler: app
+if (process.env.API_ONLY == 'true') {
+  app.listen(3000, () => {
+    console.log(
+      `🚀 Express DEV API server up! :D\n` +
+        `  - Start time: ${new Date(Date.now()).toLocaleString()}\n` +
+        `  - Port: ${3000}\n`
+    )
+  })
+} else {
+  // Export the server middleware
+  module.exports = {
+    path: '/api',
+    handler: app
+  }
 }
