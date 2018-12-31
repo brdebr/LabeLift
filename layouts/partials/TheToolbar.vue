@@ -21,7 +21,7 @@
         style="cursor:pointer">
         {{ title }} 
         <span 
-          v-if="false" 
+          v-if="true" 
           class="text-uppercase">
           -- wip [| {{ $vuetify.breakpoint.name }} |]
         </span>
