@@ -24,7 +24,8 @@
           xs11 
           sm4 
           md3 
-          xl2>
+          xl2
+          class="px-2">
           <v-card 
             hover 
             raised

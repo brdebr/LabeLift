@@ -20,7 +20,9 @@
         tag="span"
         style="cursor:pointer">
         {{ title }} 
-        <span class="text-uppercase">
+        <span 
+          v-if="false" 
+          class="text-uppercase">
           -- wip [| {{ $vuetify.breakpoint.name }} |]
         </span>
       </nuxt-link>

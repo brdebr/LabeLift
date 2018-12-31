@@ -1,8 +1,119 @@
 <template>
   <v-card
     tile 
-    class="px-3 py-3">
-    <p style="white-space:pre-line">{{ user.bio }}</p>
+    class="pa-3">
+    <v-card
+      flat
+      color="light-blue lighten-5"
+      class="mb-2 round">
+      <v-card-title>
+        <v-layout row>
+          <v-flex>
+            <div class="headline">
+              Dashboard
+            </div>
+            <span class="body-1 mb-1">Some subheader</span>
+          </v-flex>
+          <v-flex 
+            shrink 
+            class="ml-auto mt-1 mr-1">
+            <transition 
+              name="flip-y" 
+              mode="out-in">
+              <div :key="dashboard.active">
+                <v-btn 
+                  color="secondary darken-2" 
+                  icon 
+                  outline 
+                  @click="dashboard.active = !dashboard.active">
+                  <v-icon>
+                    {{ dashboard.active ? "expand_more" : "expand_less" }}
+                  </v-icon>
+                </v-btn>
+              </div>
+            </transition>
+          </v-flex>
+        </v-layout>
+      </v-card-title>
+      <v-slide-y-transition>
+        <v-card-text 
+          v-show="dashboard.active" 
+          class="pt-1">
+          <p style="white-space:pre-line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat commodo risus et dignissim. Cras non lectus id ligula pellentesque pellentesque. Mauris vulputate vehicula enim vel aliquet. Sed vitae risus fringilla ligula tempus venenatis. Quisque nec laoreet arcu. Curabitur nisi orci, volutpat nec blandit sed, laoreet eu ante. Vivamus non orci vitae urna viverra rutrum vel eget sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam interdum mauris et metus ultricies congue.</p>
+        </v-card-text>
+      </v-slide-y-transition>
+    </v-card>
+    <v-card
+      flat
+      color="teal lighten-5"
+      class="mb-2 round">
+      <v-card-title class="pb-1">
+        <div 
+          class="headline" 
+          style="font-size: 22px !important">
+          Personal data
+        </div>
+      </v-card-title>
+      <v-card-text class="pt-1">
+        <v-container 
+          class="pa-0" 
+          fill-height>
+          <v-layout
+            row
+            align-center
+            class="user-info"
+            wrap>
+            <v-flex 
+              xs12 
+              sm12
+              md6
+              xl4>
+              <span class="body-2">
+                Name:
+              </span> 
+              <span>
+                {{ user.name }}
+              </span>
+            </v-flex>
+            <v-flex 
+              xs12 
+              sm12
+              md6
+              xl4>
+              <span class="body-2">
+                Last name:
+              </span> 
+              <span>
+                {{ user.lastName }}
+              </span>
+            </v-flex>
+            <v-flex 
+              xs12 
+              xl4>
+              <span class="body-2 mr-1">
+                Email:
+              </span> 
+              <span>
+                {{ user.email }}
+              </span>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card-text>
+    </v-card>
+    <v-card
+      flat
+      class="round"
+      color="light-green lighten-5">
+      <v-card-title class="pb-1">
+        <div class="headline">
+          Bio
+        </div>
+      </v-card-title>
+      <v-card-text class="pt-1">
+        <span style="white-space: pre-line;">{{ user.bio }}</span>
+      </v-card-text>
+    </v-card>
   </v-card>
 </template>
 
@@ -11,10 +122,13 @@ export default {
   data() {
     return {
       editing: false,
+      dashboard: {
+        active: true
+      },
       user: {
-        name: 'Bryrrr',
-        surname: 'Oliver',
-        email: 'brrr@sss.com',
+        name: 'Bryann',
+        lastName: 'Oliver Y Benjmín',
+        email: 'bryan@test.com',
         bday: '09/08/1993',
         gender: 'Male',
         bio: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat commodo risus et dignissim. Cras non lectus id ligula pellentesque pellentesque. Mauris vulputate vehicula enim vel aliquet. Sed vitae risus fringilla ligula tempus venenatis. Quisque nec laoreet arcu. Curabitur nisi orci, volutpat nec blandit sed, laoreet eu ante. Vivamus non orci vitae urna viverra rutrum vel eget sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam interdum mauris et metus ultricies congue.
@@ -38,4 +152,21 @@ Donec finibus leo et sollicitudin rutrum. Maecenas purus diam, pulvinar ac congu
 </script>
 
 <style lang="scss">
+.round{
+  border-radius: 5px !important;
+}
+.user-info {
+  height: 35px;
+}
+.flip-y-enter {
+  transform: rotatex(90deg);
+}
+.flip-y-enter-active,
+.flip-y-leave-active {
+  transition: all 0.15s;
+  transform-style: preserve-3d;
+}
+.flip-y-leave-to {
+  transform: rotatex(90deg);
+}
 </style>
