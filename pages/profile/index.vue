@@ -8,7 +8,7 @@
       </v-flex>
       <v-flex
         xs2
-        class="subheading text-xs-right pr-2">
+        class="subheading text-xs-right text-no-wrap pr-2">
         ID # {{ this.$auth.user.id }}
       </v-flex>
     </v-card-title>
@@ -16,52 +16,54 @@
       <v-layout
         fill-height
         wrap
+        justify-center
         row>
-        
-        <v-card
-          xs12 
-          md3>
-          <v-card-title>
-            <v-flex class="body-2">
-              Picture/Avatar
-            </v-flex>
-            <v-flex 
-              shrink 
-              class="body-2 ml-auto">
-              <v-icon>face</v-icon>
-            </v-flex>
-          
-          </v-card-title>
-          <v-divider/>
-          <v-card-media
-            :src="image"
-            :lazy-src="image"
-            class="elevation-2"
-            aspect-ratio="0.90"
-          />
-          <v-divider/>
-          
-          <v-card-actions class="my-2 mt-3">
-            <v-btn 
-              block 
-              flat 
-              outline 
-              color="amber darken-2">
-              <v-icon>clear</v-icon>
-            </v-btn>
-            <v-btn 
-              block 
-              flat 
-              outline 
-              color="secondary">
-              <v-icon>edit</v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
+        <v-flex xs11 sm4 md3 xl2>
+          <v-card>
+            <v-card-title>
+              <v-flex class="body-2">
+                Avatar / Picture
+              </v-flex>
+              <v-flex 
+                shrink 
+                class="body-2 ml-auto">
+                <v-icon>face</v-icon>
+              </v-flex>
+            
+            </v-card-title>
+            <v-divider/>
+            <v-card-media
+              :src="image"
+              :lazy-src="image"
+              class="elevation-2"
+              aspect-ratio="0.90"
+            />
+            <v-divider/>
+            
+            <v-card-actions class="my-2 mt-3">
+              <v-btn 
+                block 
+                flat 
+                outline 
+                color="amber darken-2">
+                <v-icon>clear</v-icon>
+              </v-btn>
+              <v-btn 
+                block 
+                flat 
+                outline 
+                color="secondary">
+                <v-icon>edit</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
 
         <v-flex
           xs12
+          sm8 
           md9
+          xl10
           class="pl-4">
           <profile-form/>
         </v-flex>

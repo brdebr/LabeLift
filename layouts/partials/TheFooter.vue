@@ -2,13 +2,14 @@
   <v-footer
     height="auto"
     class="grey ligthte-2 px-3"
-    app
+    :app="!$vuetify.breakpoint.xsOnly"
   >
     <v-layout
       row
     >
       <v-flex
         align-self-center
+        class="text-no-wrap mr-2"
       >
         <span class="mr-2">Bryan de Oliveira</span>
         <span>&copy; 2018</span>
@@ -21,7 +22,7 @@
         outline
         href="https://github.com/brdebr/LabeLift"
         flat>
-        <span class="mr-2 body-1">Source code</span>
+        <span class="mr-2 body-1 hidden-xs-only">Source code</span>
         <fa
           :icon="['fab','github']"
           style="font-size: 24px" />

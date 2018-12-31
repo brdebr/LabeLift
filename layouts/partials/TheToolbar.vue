@@ -19,13 +19,19 @@
         to="/"
         tag="span"
         style="cursor:pointer">
-        {{ title }}
+        {{ title }} 
+        <span class="text-uppercase">
+          -- wip [| {{ $vuetify.breakpoint.name }} |]
+        </span>
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer/>
     <sign-up-form v-if="!this.$auth.loggedIn"/>
     <login-form v-if="!this.$auth.loggedIn"/>
     <toolbar-menu v-if="this.$auth.loggedIn"/>
+    <div v-if="false" slot="extension">
+      Use this to show buttons on mobile
+    </div>
 
 
   </v-toolbar>
