@@ -124,11 +124,11 @@ module.exports = {
       }
     },
     redirect: {
-      login: '/',
-      logout: '/',
-      user: '/',
-      home: '/profile',
-      callback: '/'
+      login: '/?login',
+      logout: '/?logout',
+      user: '/?user',
+      home: '/profile?home',
+      callback: '/profile?callback'
     }
   },
   /*

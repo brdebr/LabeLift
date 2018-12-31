@@ -1,6 +1,7 @@
 <template>
   <v-card 
-    hover 
+    v-resize="onResize" 
+    hover
     raised
     class="mt-1"
   >
@@ -24,16 +25,18 @@
     />
     <v-divider/>
     
-    <v-card-actions class="my-2 mt-3 pb-3">
+    <v-card-actions class="my-2 mt-3 pb-3 justify-space-between">
       <v-btn 
-        block 
+        :block="!isMdOrLow"
+        :icon="isMdOrLow"
         flat 
         outline 
         color="amber darken-2">
         <v-icon>delete</v-icon>
       </v-btn>
       <v-btn 
-        block 
+        :block="!isMdOrLow"
+        :icon="isMdOrLow"
         flat 
         outline 
         color="secondary">
@@ -47,7 +50,16 @@
 export default {
   data() {
     return {
-      image: require('~/assets/images/placeholder-profile.jpg')
+      image: require('~/assets/images/placeholder-profile.jpg'),
+      isMdOrLow: false
+    }
+  },
+  beforeMount() {
+    this.onResize()
+  },
+  methods: {
+    onResize() {
+      this.isMdOrLow = this.$vuetify.breakpoint.mdAndDown
     }
   }
 }

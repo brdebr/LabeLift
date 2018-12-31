@@ -22,9 +22,10 @@
                 color="secondary darken-2" 
                 icon 
                 outline 
-                @click="active = !active">
-                <v-icon>
-                  {{ active ? "expand_more" : "expand_less" }}
+                small
+                @click.stop="active = !active">
+                <v-icon size="16">
+                  {{ !active ? "unfold_more" : "unfold_less" }}
                 </v-icon>
               </v-btn>
             </div>

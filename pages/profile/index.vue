@@ -1,10 +1,12 @@
 <template>
   <v-card 
+    v-if="$auth.user" 
     height="100%" 
     width="100%">
+    <!-- TODO: ^^^ Why the auth middleware is not working, patched it like this ^^^? -->
     <v-card-title class="headline elevation-1">
       <v-flex xs10>
-        Profile
+        Your profile
       </v-flex>
       <v-flex
         xs2
