@@ -132,7 +132,6 @@ export default {
                   icon: 'fingerprint',
                   className: 'green lighten-1'
                 })
-                this.clear()
                 this.dialog = false
               })
           }
