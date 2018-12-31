@@ -2,11 +2,11 @@ const { User } = require('../database/models/')
 
 exports.getUsers = (req, res, next) => {
   User.findAll()
-    .then(users => {
+    .then(data => {
       res.status(200).json({
         message: 'Here is a list of users !',
-        length: users.length,
-        data: users
+        length: data.length,
+        data
       })
     })
     .catch(err => {

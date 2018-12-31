@@ -17,35 +17,48 @@
         fill-height
         wrap
         row>
-        <v-flex 
+        
+        <v-card
           xs12 
           md3>
-          <v-card>
-            <v-card-media
-              :src="image"
-              :lazy-src="image"
-              aspect-ratio="0.90"
-            ></v-card-media>
-            <v-divider/>
-            <v-card-actions>
-              <v-btn 
-                block 
-                flat 
-                outline 
-                color="amber darken-2">
-                <v-icon>clear</v-icon>
-              </v-btn>
-              <v-spacer/>
-              <v-btn 
-                block 
-                flat 
-                outline 
-                color="secondary">
-                <v-icon>edit</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
+          <v-card-title>
+            <v-flex class="body-2">
+              Picture/Avatar
+            </v-flex>
+            <v-flex 
+              shrink 
+              class="body-2 ml-auto">
+              <v-icon>face</v-icon>
+            </v-flex>
+          
+          </v-card-title>
+          <v-divider/>
+          <v-card-media
+            :src="image"
+            :lazy-src="image"
+            class="elevation-2"
+            aspect-ratio="0.90"
+          />
+          <v-divider/>
+          
+          <v-card-actions class="my-2 mt-3">
+            <v-btn 
+              block 
+              flat 
+              outline 
+              color="amber darken-2">
+              <v-icon>clear</v-icon>
+            </v-btn>
+            <v-btn 
+              block 
+              flat 
+              outline 
+              color="secondary">
+              <v-icon>edit</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+
         <v-flex
           xs12
           md9

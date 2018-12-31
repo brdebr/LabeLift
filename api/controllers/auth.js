@@ -20,8 +20,8 @@ exports.signup = (req, res, next) => {
     .hash(password, parseInt(process.env.USR_HASH || secrets.userPassHash))
     .then(hashedPw => {
       const user = new User({
-        name: name,
-        email: email,
+        name,
+        email,
         password: hashedPw
       })
       return user.save()
@@ -64,7 +64,7 @@ exports.login = async (req, res, next) => {
 
   User.findOne({
     where: {
-      email: email
+      email
     }
   })
     .then(user => {
