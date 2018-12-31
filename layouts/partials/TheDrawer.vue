@@ -1,12 +1,12 @@
 <template>
   <v-navigation-drawer
-    :mini-variant="miniVariant"
-    :value="display"
+    :mini-variant="$store.state.layout.drawer.mini"
+    :value="$store.state.layout.drawer.active"
     clipped
     width="275"
     fixed
     app
-    @input="val => $emit('setDrawer',val)"
+    @input="val => $store.commit('layout/setDrawer',val)"
   >
     <v-layout
       column
@@ -32,31 +32,43 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-      <v-btn
-        icon
-        outline
-        class="mx-auto mb-3 light-blue--text text--darken-3"
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'" />
-      </v-btn>
+      <transition 
+        name="flip" 
+        mode="out-in">
+        <div 
+          :key="$store.state.layout.drawer.mini" 
+          class="mx-auto mb-3">
+          <v-btn
+            icon
+            outline
+            class="light-blue--text text--darken-3"
+            @click.stop="$store.commit('layout/toggleMini')"
+          >
+            <v-icon v-html="$store.state.layout.drawer.mini ? 'chevron_right' : 'chevron_left'" />
+          </v-btn>
+        </div>
+      </transition>
     </v-layout>
-
   </v-navigation-drawer>
 </template>
 <script>
 export default {
   props: {
-    display: { type: Boolean, default: false },
     items: { type: Array, default: () => [] }
-  },
-  data() {
-    return {
-      miniVariant: true
-    }
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.flip-enter {
+  transform: rotateY(90deg);
+}
+.flip-enter-active,
+.flip-leave-active {
+  transition: all 0.15s;
+  transform-style: preserve-3d;
+}
+.flip-leave-to {
+  transform: rotateY(90deg);
+}
 </style>

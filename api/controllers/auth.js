@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs')
 const { secrets } = require('../config')
 const jwt = require('jsonwebtoken')
 
-const User = require('../models/user')
+const { User } = require('../database/models/')
 
 exports.signup = (req, res, next) => {
   const email = req.body.email
@@ -20,8 +20,8 @@ exports.signup = (req, res, next) => {
     .hash(password, parseInt(process.env.USR_HASH || secrets.userPassHash))
     .then(hashedPw => {
       const user = new User({
-        name: name,
-        email: email,
+        name,
+        email,
         password: hashedPw
       })
       return user.save()
@@ -64,7 +64,7 @@ exports.login = async (req, res, next) => {
 
   User.findOne({
     where: {
-      email: email
+      email
     }
   })
     .then(user => {
@@ -75,7 +75,7 @@ exports.login = async (req, res, next) => {
             email: user.email,
             name: user.name
           },
-          parseInt(process.env.USR_HASH),
+          secrets.jwtSecret,
           {
             expiresIn: '1h'
           }

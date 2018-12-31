@@ -16,18 +16,7 @@ router.get(
   passport.authenticate('jwt', {
     session: false
   }),
-  (req, res) => {
-    res.json({
-      message: 'Here is your current user !',
-      user: {
-        id: req.user.id,
-        name: req.user.name,
-        email: req.user.email,
-        tokenExpHuman: 'Expires ' + req.user.expHuman,
-        tokenExp: req.user.exp
-      }
-    })
-  }
+  usersController.getCurrent
 )
 
 module.exports = router

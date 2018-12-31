@@ -1,6 +1,7 @@
 <template>
   <v-toolbar
-    :clipped-left="clipped"
+    clipped-left
+    clipped-right
     fixed
     dark
     height="64"
@@ -10,7 +11,7 @@
     <v-toolbar-side-icon
       class="light-blue--text text--lighten-3"
       outline
-      @click="$emit('toggleDrawer')" />
+      @click="$store.commit('layout/toggleDrawer')" />
 
     <v-toolbar-title>
       <nuxt-link
@@ -18,27 +19,25 @@
         to="/"
         tag="span"
         style="cursor:pointer">
-        {{ title }}
+        {{ title }} 
+        <span 
+          v-if="false" 
+          class="text-uppercase">
+          -- wip [| {{ $vuetify.breakpoint.name }} |]
+        </span>
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer/>
-    <sign-up-form v-if="!this.$auth.loggedIn">
-      <v-btn
-        depressed
-        color="primary darken-1">
-        <span class="mr-1">Sign up</span>
-        <v-icon>person</v-icon>
-      </v-btn>
-    </sign-up-form>
-    <login-form v-if="!this.$auth.loggedIn">
-      <v-btn
-        depressed
-        color="light-green darken-1">
-        <span class="mr-2">Login</span>
-        <v-icon>exit_to_app</v-icon>
-      </v-btn>
-    </login-form>
+    <sign-up-form v-if="!this.$auth.loggedIn"/>
+    <login-form v-if="!this.$auth.loggedIn"/>
     <toolbar-menu v-if="this.$auth.loggedIn"/>
+    <div 
+      v-if="false" 
+      slot="extension">
+      Use this to show buttons on mobile
+    </div>
+
+
   </v-toolbar>
 </template>
 <script>
@@ -54,19 +53,11 @@ export default {
   },
   data() {
     return {
-      clipped: true,
-      drawer: true,
-      fixed: false,
       items: [
         { icon: 'apps', title: 'Dashboard', to: '/' },
         { icon: 'bubble_chart', title: 'About', to: '/about' }
       ],
-      miniVariant: false,
-      title: 'LabeLift',
-      login: {
-        dialog: false,
-        loading: false
-      }
+      title: 'LabeLift'
     }
   }
 }

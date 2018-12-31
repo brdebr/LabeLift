@@ -1,14 +1,11 @@
 <template>
   <v-app>
-    <TheToolbar
-      @toggleDrawer="drawer.visible = !drawer.visible"/>
+    <TheToolbar/>
     <TheDrawer
-      :display="drawer.visible"
       :items="drawer.items"
-      @setDrawer="setDrawer"
     />
     <v-content class="grey lighten-3">
-      <v-container>
+      <v-container fill-height>
         <nuxt />
       </v-container>
     </v-content>
@@ -19,6 +16,7 @@
 import TheToolbar from '~/layouts/partials/TheToolbar'
 import TheDrawer from '~/layouts/partials/TheDrawer'
 import TheFooter from '~/layouts/partials/TheFooter'
+
 export default {
   components: {
     TheToolbar,
@@ -28,17 +26,11 @@ export default {
   data() {
     return {
       drawer: {
-        visible: true,
         items: [
           { icon: 'apps', title: 'Dashboard', to: '/' },
           { icon: 'info', title: 'About', to: '/about' }
         ]
       }
-    }
-  },
-  methods: {
-    setDrawer(val) {
-      this.drawer.visible = val
     }
   }
 }

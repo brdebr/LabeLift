@@ -3,8 +3,7 @@ const morgan = require('morgan')
 const passport = require('passport')
 const bodyParser = require('body-parser')
 
-const sequelize = require('./database/')
-const initModels = require('./models/')
+const db = require('./database/models/index')
 
 // Create express instance
 const app = express()
@@ -34,15 +33,21 @@ require('./plugins/passport')(passport)
 const userRoutes = require('./routes/user.routes')
 const authRoutes = require('./routes/auth.routes')
 
-// Import API Routes
-app.use('/users', userRoutes)
-app.use(authRoutes)
+let apiURL = ''
 
-sequelize
+if (process.env.API_ONLY == 'true') {
+  apiURL = '/api'
+}
+
+// Import API Routes
+app.use(apiURL + '/users', userRoutes)
+app.use(apiURL + '/auth', authRoutes)
+
+db.sequelize
   .sync()
   .then(result => {
     console.log(
-      `-> Connected to Database! :D\n` +
+      `\n🚀 Connected to Database! :D\n` +
         `  - DB Name: '${result.config.database}'\n` +
         `  - Port: ${result.config.port}\n` +
         `  - Dialect: ${result.options.dialect}\n`
@@ -52,8 +57,22 @@ sequelize
     console.log(err)
   })
 
-// Export the server middleware
-module.exports = {
-  path: '/api',
-  handler: app
+if (process.env.API_ONLY == 'true') {
+  let routesList = app._router.stack
+
+  app.listen(3000, () => {
+    console.log(
+      `\n🚀 Express DEV API server up! :D\n` +
+        `  - Start time: ${new Date(Date.now()).toLocaleString()}\n` +
+        `  - Port: ${3000}\n` +
+        `  - Routes:\n` +
+        `     - /api/WIP\n`
+    )
+  })
+} else {
+  // Export the server middleware
+  module.exports = {
+    path: '/api',
+    handler: app
+  }
 }
