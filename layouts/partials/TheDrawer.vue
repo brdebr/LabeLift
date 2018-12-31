@@ -65,7 +65,7 @@ export default {
 }
 .flip-enter-active,
 .flip-leave-active {
-  transition: all .15s;
+  transition: all 0.15s;
   transform-style: preserve-3d;
 }
 .flip-leave-to {

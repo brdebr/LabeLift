@@ -1,10 +1,9 @@
 <template>
-  <div class="d-flex">
-    <p style="white-space:pre-line">
-
-      {{ user.bio }}
-    </p>
-  </div>
+  <v-card
+    tile 
+    class="px-3 py-3">
+    <p style="white-space:pre-line">{{ user.bio }}</p>
+  </v-card>
 </template>
 
 <script>

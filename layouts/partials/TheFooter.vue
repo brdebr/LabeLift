@@ -1,8 +1,8 @@
 <template>
   <v-footer
+    :app="!$vuetify.breakpoint.xsOnly"
     height="auto"
     class="grey ligthte-2 px-3"
-    :app="!$vuetify.breakpoint.xsOnly"
   >
     <v-layout
       row
