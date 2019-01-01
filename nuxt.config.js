@@ -53,7 +53,9 @@ module.exports = {
    */
   css: [
     '~/assets/style/app.styl',
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    'filepond/dist/filepond.min.css',
+    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
   ],
 
   /*
