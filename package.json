@@ -44,6 +44,7 @@
     "sass-loader": "^7.1.0",
     "sequelize": "^4.42.0",
     "vue-filepond": "^4.0.2",
+    "vue-smooth-reflow": "^0.1.12",
     "vuetify": "^1.2.4",
     "vuetify-toast-snackbar": "^0.1.3"
   },
