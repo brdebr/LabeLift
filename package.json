@@ -32,6 +32,7 @@
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.23.0",
     "morgan": "^1.9.1",
+    "multer": "^1.4.1",
     "node-sass": "^4.11.0",
     "nuxt": "^2.3.4",
     "nuxt-fontawesome": "^0.3.0",

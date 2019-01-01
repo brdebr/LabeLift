@@ -39,7 +39,7 @@
           :block="!isMdOrLow"
           :icon="isMdOrLow"
           flat 
-          outline sd
+          outline
           @click="editingImg = !editingImg"
           color="secondary">
           <v-icon>edit</v-icon>
@@ -51,12 +51,15 @@
         <file-pond
           name="test"
           ref="pond"
-          label-idle="Drop files here..."
-          allow-multiple="true"
+          label-idle="< Drop your pics here or click me >"
+          :allowReplace="false"
+          :dropOnPage="true"
+          :allowRevert="false"
+          @processfile="onUpload"  
+          :allow-multiple="false"
           accepted-file-types="image/jpeg, image/png"
-          server="/api"
-          v-bind:files="myFiles"
-          v-on:init="handleFilePondInit"/>
+          :server="fpConfig.server"
+          v-bind:files="myFiles"/>
       </div>
     </v-slide-y-transition>
   </div>
@@ -90,7 +93,22 @@ export default {
     return {
       image: require('~/assets/images/placeholder-profile.jpg'),
       isMdOrLow: false,
-      editingImg: false
+      editingImg: false,
+      myFiles: [],
+      fpConfig: {
+        server: {
+            process: {
+                url: '/api/users/profile-up',
+                method: 'POST',
+                withCredentials: false,
+                headers: {},
+                timeout: 7000,
+                onload: null,
+                onerror: null,
+                ondata: null
+            }
+        }
+      }
     }
   },
   beforeMount() {
@@ -100,11 +118,11 @@ export default {
     onResize() {
       this.isMdOrLow = this.$vuetify.breakpoint.mdAndDown
     },
-    handleFilePondInit: function() {
-        console.log('FilePond has initialized');
-
-        // FilePond instance methods are available on `this.$refs.pond`
-    }
+    onUpload(){
+      setTimeout(() => {
+        this.editingImg = false
+      }, 1500);
+    },
   }
 }
 </script>

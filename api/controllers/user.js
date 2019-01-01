@@ -26,3 +26,8 @@ exports.getCurrent = (req, res, next) => {
     }
   })
 }
+
+exports.profileUpload = (req, res, next) => {
+  res.set('Content-Type', 'text/plain')
+  res.send(req.file.filename)
+}
