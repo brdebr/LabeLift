@@ -19,6 +19,7 @@
       </v-card-title>
       <v-divider/>
       <v-img
+        ref="avatar"
         :src="image"
         :lazy-src="image"
         class="elevation-2"
@@ -40,26 +41,27 @@
           :icon="isMdOrLow"
           flat 
           outline
-          @click="editingImg = !editingImg"
-          color="secondary">
+          color="secondary"
+          @click="editingImg = !editingImg">
           <v-icon>edit</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
     <v-slide-y-transition hide-on-leave>
-      <div v-if="editingImg" class="mt-4">
+      <div 
+        v-if="editingImg" 
+        class="mt-4">
         <file-pond
-          name="test"
           ref="pond"
-          label-idle="< Drop your pics here or click me >"
-          :allowReplace="false"
-          :dropOnPage="true"
-          :allowRevert="false"
-          @processfile="onUpload"  
-          :allow-multiple="false"
-          accepted-file-types="image/jpeg, image/png"
           :server="fpConfig.server"
-          v-bind:files="myFiles"/>
+          :files="myFiles"  
+          :file="myFile"
+          name="test"
+          label-idle="< Drop your pics here or click me >"
+          accepted-file-types="image/jpeg, image/png"
+          @processfile="onUpload"
+          @preparefile="onDrop"
+        />
       </div>
     </v-slide-y-transition>
   </div>
@@ -67,26 +69,19 @@
 
 <script>
 // Import Vue FilePond
-import vueFilePond from 'vue-filepond';
- 
-// Import FilePond styles
-// import 'filepond/dist/filepond.min.css';
- 
-// Import FilePond plugins
-// Please note that you need to install these plugins separately
- 
-// Import image preview plugin styles
-// import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
- 
-// Import image preview and file type validation plugins
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
- 
+import vueFilePond from 'vue-filepond'
+
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+
 // Create component
-const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview);
- 
+const FilePond = vueFilePond(
+  FilePondPluginFileValidateType,
+  FilePondPluginImagePreview
+)
+
 export default {
-  components:{
+  components: {
     FilePond
   },
   data() {
@@ -95,18 +90,19 @@ export default {
       isMdOrLow: false,
       editingImg: false,
       myFiles: [],
+      myFile: [],
       fpConfig: {
         server: {
-            process: {
-                url: '/api/users/profile-up',
-                method: 'POST',
-                withCredentials: false,
-                headers: {},
-                timeout: 7000,
-                onload: null,
-                onerror: null,
-                ondata: null
-            }
+          process: {
+            url: '/api/users/profile-up',
+            method: 'POST',
+            withCredentials: false,
+            headers: {},
+            timeout: 7000,
+            onload: null,
+            onerror: null,
+            ondata: null
+          }
         }
       }
     }
@@ -118,11 +114,20 @@ export default {
     onResize() {
       this.isMdOrLow = this.$vuetify.breakpoint.mdAndDown
     },
-    onUpload(){
+    onUpload() {
       setTimeout(() => {
         this.editingImg = false
-      }, 1500);
+      }, 1500)
     },
+    onDrop(data) {
+      setTimeout(() => {
+        var reader = new FileReader()
+        reader.onload = e => {
+          this.image = e.target.result
+        }
+        reader.readAsDataURL(data.file)
+      }, 1500)
+    }
   }
 }
 </script>

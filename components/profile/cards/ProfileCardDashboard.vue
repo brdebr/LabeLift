@@ -6,7 +6,7 @@
     <v-card-title>
       <v-layout row>
         <v-flex>
-          <div class="headline">
+          <div class="headline font-weight-medium">
             Dashboard
           </div>
           <span class="body-1 mb-1">Some subheader</span>

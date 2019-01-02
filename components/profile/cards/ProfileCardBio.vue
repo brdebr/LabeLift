@@ -4,7 +4,7 @@
     class="round"
     color="light-green lighten-5">
     <v-card-title class="pb-1">
-      <div class="headline">
+      <div class="headline font-weight-medium">
         Bio
       </div>
     </v-card-title>

@@ -69,4 +69,15 @@ Donec finibus leo et sollicitudin rutrum. Maecenas purus diam, pulvinar ac congu
 .flip-y-leave-to {
   transform: rotatex(90deg);
 }
+.flip-enter {
+  transform: rotateY(90deg);
+}
+.flip-enter-active,
+.flip-leave-active {
+  transition: all 0.15s;
+  transform-style: preserve-3d;
+}
+.flip-leave-to {
+  transform: rotateY(90deg);
+}
 </style>

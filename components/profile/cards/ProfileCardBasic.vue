@@ -3,40 +3,36 @@
     flat
     color="teal lighten-5"
     class="mb-2 round">
-    <v-card-title class="pb-1">
+    <v-card-title>
       <v-flex 
-        class="headline" 
-        style="font-size: 22px !important">
+        class="headline font-weight-medium">
         Personal data
       </v-flex>
       <v-flex 
         shrink 
         class="ml-auto">
-        <v-btn 
-          small
-          outline
-          color="secondary darken-1"
-          icon
-          @click="editing = !editing">
-          <v-icon size="16">
-            edit
-          </v-icon>
-        </v-btn>
+        <transition 
+          name="flip" 
+          mode="out-in">
+          <v-btn 
+            :color="`${editing ? 'green' : 'secondary' } darken-1`"
+            :key="editing"
+            small
+            outline
+            icon
+            @click="editing = !editing">
+            <v-icon size="16">
+              {{ editing ? 'check' : 'edit' }}
+            </v-icon>
+          </v-btn>
+        </transition>
       </v-flex>
     </v-card-title>
-    <transition 
-      name="shrink-x" 
-      mode="out-in"
-      @before-enter="beforeEnter"
-      @eenter="enter"
-      @after-enter="afterEnter"
-      @before-leave="beforeLeave"
-      @leeave="leave"
-      @after-leave="afterLeave">
+    <v-divider/>
+    <v-slide-x-reverse-transition mode="out-in">
       <v-card-text 
         v-if="editing" 
-        key="edit" 
-        class="pt-1">
+        key="edit">
         <v-container 
           class="pa-0" 
           fill-height>
@@ -50,7 +46,7 @@
               xs12 
               sm12
               md12
-              lg12
+              lg5
               xl3>
               <v-text-field
                 v-model="form.name"
@@ -59,13 +55,14 @@
                 counter="200"
                 validate-on-blur
                 label="Name"
-                type="text"/>
+                type="text"
+                class="pr-2"/>
             </v-flex>
             <v-flex 
               xs12 
               sm12
               md12
-              lg12
+              lg7
               xl4>
               <v-text-field
                 v-model="form.lastName"
@@ -74,7 +71,8 @@
                 counter="200"
                 validate-on-blur
                 label="Last name"
-                type="text"/>
+                type="text"
+                class="pr-2"/>
             </v-flex>
             <v-flex 
               xs12 
@@ -85,15 +83,15 @@
                 validate-on-blur
                 name="email"
                 label="Email"
-                type="text"/>
+                type="text"
+                class="pr-2"/>
             </v-flex>
           </v-layout>
         </v-container>
       </v-card-text>
       <v-card-text 
         v-else 
-        key="show" 
-        class="pt-1">
+        key="show" >
         <v-container 
           class="pa-0" 
           fill-height>
@@ -105,41 +103,50 @@
             <v-flex 
               xs12 
               sm12
-              md6
-              xl4>
-              <span class="body-2">
-                Name:dd
+              md12
+              lg6
+              xl4
+              class="mt-1 pt-3"
+              style="height: 64px">
+              <span class="subheading font-weight-medium">
+                Name:
               </span> 
               <span>
-                {{ user.name }}
+                {{ $auth.user.name || '-Fill your information-' }}
               </span>
             </v-flex>
             <v-flex 
               xs12 
               sm12
-              md6
-              xl4>
-              <span class="body-2">
+              md12
+              lg6
+              xl4
+              class="mt-1 pt-3"
+              style="height: 64px">
+              <span class="subheading font-weight-medium">
                 Last name:
               </span> 
               <span>
-                {{ user.lastName }}
+                {{ $auth.user.lastName || '-Fill your information-' }}
               </span>
             </v-flex>
             <v-flex 
               xs12 
-              xl4>
-              <span class="body-2 mr-1">
+              lg12
+              xl4
+              class="mt-1 pt-3"
+              style="height: 64px">
+              <span class="subheading font-weight-medium mr-1">
                 Email:
               </span> 
               <span>
-                {{ user.email }}
+                {{ $auth.user.email || '-Fill your information-' }}
               </span>
             </v-flex>
           </v-layout>
         </v-container>
       </v-card-text>
-    </transition>
+    </v-slide-x-reverse-transition>
   </v-card>
 
 </template>
@@ -165,77 +172,6 @@ export default {
         originalHeight: 0
       }
     }
-  },
-  methods: {
-    // --------
-    // ENTERING
-    // --------
-
-    beforeEnter: function(el) {
-      // ...
-      console.log('bef-enter ' + el.offsetHeight)
-    },
-    // the done callback is optional when
-    // used in combination with CSS
-    enter: function(el, done) {
-      // ...
-      console.log('enter ' + el.offsetHeight)
-      done()
-    },
-    afterEnter: function(el) {
-      // ...
-      console.log('enter ' + el.offsetHeight)
-    },
-    enterCancelled: function(el) {
-      // ...
-    },
-
-    // --------
-    // LEAVING
-    // --------
-
-    beforeLeave: function(el) {
-      // ...
-      console.log('beforeLeave ' + el.offsetHeight)
-
-      //   this.originalHeight = el.height
-    },
-    // the done callback is optional when
-    // used in combination with CSS
-    leave: function(el, done) {
-      console.log('leave ' + el.offsetHeight)
-      // ...
-      done()
-    },
-    afterLeave: function(el) {
-      console.log('afterLeave ' + el.offsetHeight)
-      // ...
-    }
   }
 }
 </script>
-
-<style lang="scss">
-// // .shrink-x-enter{
-
-// }
-.shrink-x-leave {
-  // height: 300px;
-  // opacity: 1;
-}
-.shrink-x-leave-to {
-  // height: 0px;
-  // background-color: red;
-  opacity: 0;
-}
-.shrink-x-enter-active,
-.shrink-x-leave-active {
-  transition: all 0.5s;
-}
-
-.shrink-x-enter {
-  opacity: 0;
-}
-.shrink-x-enter-to {
-}
-</style>
