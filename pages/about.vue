@@ -1,13 +1,9 @@
 <template>
   <v-layout
     column
-    justify-center
-    align-center>
+  >
     <v-flex
-      xs12
-      sm8
-      md6>
-      <div class="text-xs-center"/>
+      xs12>
       <v-card>
         <v-card-title class="headline">About</v-card-title>
         <v-card-text>

@@ -6,11 +6,14 @@
     max-width="600px"
     class="login-dialog"
   >
-    <template slot="activator">
-      <slot>
-        Sign up
-      </slot>
-    </template>
+    <v-btn
+      slot="activator"
+      depressed
+      dark
+      color="primary darken-1">
+      <span class="mr-2">Sign up</span>
+      <v-icon>person_add</v-icon>
+    </v-btn>
 
     <v-card class="login-dialog">
       <v-card-title class="justify-center">
@@ -24,19 +27,22 @@
             name="name"
             counter="200"
             required
+            validate-on-blur
             label="Name"
             type="text"/>
           <v-text-field
-          v-model="form.email"
-          prepend-icon="email"
-          hint="You will receive a confirmation email in this address"
-          name="email"
-          label="Email"
-          type="text"/>
+            v-model="form.email"
+            prepend-icon="email"
+            hint="You will receive a confirmation email in this address"
+            validate-on-blur
+            name="email"
+            label="Email"
+            type="text"/>
           <v-text-field
             id="password"
             v-model="form.password"
             prepend-icon="lock"
+            validate-on-blur
             hint="6 characters minimum"
             persistent-hint
             name="password"
@@ -46,10 +52,11 @@
           <v-text-field
             id="password2"
             v-model="form.password2"
+            :rules="[v => !!v || 'Password can\'t be empty']"
             prepend-icon="vpn_key"
+            validate-on-blur
             hint="Make sure that both matches"
             name="password"
-            :rules="[v => !!v || 'Password can\'t be null']"
             label="Confirm password"
             type="password"
           />
@@ -81,10 +88,10 @@
           flat
           round
           outline
-          class="ml-3 mr-2"
+          class="ml-3 mr-2 pr-3"
           @click="submit">
           Sign up
-          <v-icon class="ml-1 pl-0 mb-1">check</v-icon>
+          <v-icon class="pl-0 check-icon">check</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -107,20 +114,25 @@ export default {
   methods: {
     async signUp() {
       try {
-        this.$axios.post('/api/auth/signup',this.form)
-        .then(result => {
-          if(result.status === 201){
-            this.$toast.success('Successfully Signed Up', { icon: 'done', className: 'green lighten-1' })
+        this.$axios.post('/api/auth/signup', this.form).then(result => {
+          if (result.status === 201) {
+            this.$toast.success('Successfully Signed Up', {
+              icon: 'done',
+              className: 'green lighten-1'
+            })
             this.$auth
               .loginWith('local', {
                 data: {
                   email: this.form.email,
                   password: this.form.password
                 }
-              }).then(result => {
-                this.$toast.success('Logged in!', { icon: 'fingerprint', className: 'green lighten-1' })
-                this.clear()
-                this.dialog = false;
+              })
+              .then(result => {
+                this.$toast.success('Logged in!', {
+                  icon: 'fingerprint',
+                  className: 'green lighten-1'
+                })
+                this.dialog = false
               })
           }
         })
@@ -128,14 +140,20 @@ export default {
         this.$toast.error('Something went wrong :/', { icon: 'error' })
       }
     },
-    submit () {
-        if (this.$refs.form.validate()) {
-          this.signUp()
-        }
-      },
-    clear () {
+    submit() {
+      if (this.$refs.form.validate()) {
+        this.signUp()
+      }
+    },
+    clear() {
       this.$refs.form.reset()
     }
   }
 }
 </script>
+<style lang="scss" scoped>
+.check-icon {
+  margin-bottom: 2px;
+  margin-left: 8px;
+}
+</style>

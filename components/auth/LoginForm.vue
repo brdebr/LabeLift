@@ -6,11 +6,14 @@
     max-width="600px"
     class="login-dialog"
   >
-    <template slot="activator">
-      <slot>
-        LOGIN
-      </slot>
-    </template>
+    <v-btn
+      slot="activator"
+      depressed
+      dark
+      color="light-green darken-1">
+      <span class="mr-2">Login</span>
+      <v-icon>exit_to_app</v-icon>
+    </v-btn>
 
     <v-card class="login-dialog">
       <v-card-title class="justify-center">
@@ -20,17 +23,21 @@
         <v-form>
           <v-text-field
             v-model="form.email"
+            validate-on-blur
             prepend-icon="person"
-            name="username"
-            label="Username"
+            name="email"
+            label="Email"
             type="text"/>
           <v-text-field
             id="password"
+            :append-icon="hidePassword ? 'visibility' : 'visibility_off'"
+            :type="hidePassword ? 'password' : 'text'"
             v-model="form.password"
+            validate-on-blur
             prepend-icon="lock"
             name="password"
             label="Password"
-            type="password"
+            @click:append="hidePassword = !hidePassword"
           />
         </v-form>
       </v-card-text>
@@ -75,6 +82,7 @@ export default {
     return {
       dialog: false,
       loading: false,
+      hidePassword: true,
       form: {
         email: '',
         password: ''
@@ -84,7 +92,7 @@ export default {
   methods: {
     async google() {
       await this.$auth.loginWith('google').catch(e => {
-        this.$toast.show('Error', { icon: 'fingerprint' })
+        this.$toast('Error', { icon: 'fingerprint' })
       })
     },
     async login() {
@@ -100,12 +108,15 @@ export default {
             this.$toast.error('Failed Logging In', { icon: 'error_outline' })
           })
         if (this.$auth.loggedIn) {
-          this.$toast.success('Successfully Logged In', { icon: 'done', className: 'green lighten-1' })
+          this.$toast.success('Successfully Logged In', {
+            icon: 'done',
+            className: 'green lighten-1'
+          })
         }
       } catch (e) {
         this.$toast.error('Username or Password wrong', { icon: 'error' })
       }
-    },
+    }
   }
 }
 </script>

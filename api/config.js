@@ -6,17 +6,6 @@ const config = {
     app: {
       name: 'LabeLift'
     },
-    db: {
-      host: '127.0.0.1',
-      database: 'labelift_development',
-      port: 5432,
-      user: 'brdebr',
-      paswd: 'devz',
-      dialect: 'postgres',
-      reset: false,
-      logging: false,
-      ssl: false
-    },
     secrets: {
       userPassHash: 10,
       jwtSecret: 'my-secretshhh',
@@ -29,17 +18,6 @@ const config = {
     app: {
       name: 'LabeLift'
     },
-    db: {
-      host: '127.0.0.1',
-      database: 'labelift_test',
-      port: 5432,
-      user: 'brdebr',
-      paswd: 'devz',
-      dialect: 'postgres',
-      reset: true,
-      logging: false,
-      ssl: false
-    },
     secrets: {
       userPassHash: 10,
       jwtSecret: 'my-secretshhh',
@@ -51,17 +29,6 @@ const config = {
   production: {
     app: {
       name: 'LabeLift'
-    },
-    db: {
-      host: process.env.DATABASE_HOST,
-      database: process.env.DATABASE,
-      port: 5432,
-      user: process.env.DATABASE_USER,
-      paswd: process.env.DATABASE_PASSWD,
-      dialect: 'postgres',
-      reset: false,
-      logging: false,
-      ssl: true
     },
     secrets: {
       userPassHash: 10,

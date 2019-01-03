@@ -40,10 +40,8 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: {
-    name: 'chasing-dots',
-    color: '#ff5638',
-    background: 'white',
-    height: '4px'
+    color: '#4CAF50',
+    height: '5px'
   },
   serverMiddleware: [
     // API middleware
@@ -53,12 +51,19 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.styl'],
+  css: [
+    '~/assets/style/app.styl',
+    '@fortawesome/fontawesome-svg-core/styles.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vuetify'],
+  plugins: [
+    '@/plugins/vuetify',
+    '@/plugins/fontawesome',
+    { src: '@/plugins/snackbars', ssr: false }
+  ],
 
   /*
    ** Nuxt.js modules
@@ -67,7 +72,6 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    '@nuxtjs/toast',
     [
       'nuxt-fontawesome',
       {
@@ -93,18 +97,6 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL: process.env.API_URL || 'http://localhost:3000',
     https: process.env.NODE_ENV === 'production'
-  },
-
-  toast: {
-    position: 'top-right',
-    duration: 5000,
-    action: {
-      icon: 'close',
-      class: 'white--text',
-      onClick: (e, toastObject) => {
-        toastObject.goAway(0)
-      }
-    }
   },
 
   auth: {
@@ -135,6 +127,7 @@ module.exports = {
       login: '/',
       logout: '/',
       user: '/',
+      home: '/profile',
       callback: '/'
     }
   },
