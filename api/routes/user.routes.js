@@ -25,9 +25,9 @@ router.get(
 router.post(
   '/profile-up',
   upload.single('test'),
-  // passport.authenticate('jwt', {
-  //   session: false
-  // }),
+  passport.authenticate('jwt', {
+    session: false
+  }),
   usersController.profileUpload
 )
 

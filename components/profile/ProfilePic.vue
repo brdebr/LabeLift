@@ -97,7 +97,9 @@ export default {
             url: '/api/users/profile-up',
             method: 'POST',
             withCredentials: false,
-            headers: {},
+            headers: {
+              'Authorization': this.$auth.getToken('local')
+            },
             timeout: 7000,
             onload: null,
             onerror: null,
