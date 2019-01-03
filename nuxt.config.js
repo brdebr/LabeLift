@@ -64,7 +64,8 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/fontawesome',
-    { src: '@/plugins/snackbars', ssr: false }
+    { src: '@/plugins/snackbars', ssr: false },
+    { src: '@/plugins/ckeditor', ssr: false }
   ],
 
   /*
