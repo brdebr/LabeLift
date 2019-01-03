@@ -3,8 +3,8 @@
     tile 
     class="pa-3">
     <profile-card-dashboard/>
-    <profile-card-basic :user="user"/>
-    <profile-card-bio :user="user"/>
+    <profile-card-basic/>
+    <profile-card-bio :user="userTest"/>
   </v-card>
 </template>
 
@@ -25,10 +25,11 @@ export default {
       dashboard: {
         active: true
       },
-      user: {
+      user: this.$store.user,
+      userTest: {
         name: 'Bryann',
-        lastName: 'Oliver Y Benjmín',
-        email: 'bryan@test.com',
+        lastName: 'Oliver Y Benjamín',
+        email: 'bryan',
         bday: '09/08/1993',
         gender: 'Male',
         bio: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat commodo risus et dignissim. Cras non lectus id ligula pellentesque pellentesque. Mauris vulputate vehicula enim vel aliquet. Sed vitae risus fringilla ligula tempus venenatis. Quisque nec laoreet arcu. Curabitur nisi orci, volutpat nec blandit sed, laoreet eu ante. Vivamus non orci vitae urna viverra rutrum vel eget sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam interdum mauris et metus ultricies congue.

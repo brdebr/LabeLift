@@ -8,9 +8,31 @@
         class="headline font-weight-medium">
         Personal data
       </v-flex>
+
       <v-flex 
         shrink 
         class="ml-auto">
+        <v-slide-y-transition 
+          name="flip" 
+          mode="out-in">
+          <v-btn 
+            v-show="editing"
+            color="amber darken-1"
+            small
+            outline
+            icon
+            @click="cancelEditing">
+            <v-icon size="16">
+              clear
+            </v-icon>
+          </v-btn>
+        </v-slide-y-transition>
+      </v-flex>
+
+
+      <v-flex 
+        shrink 
+      >
         <transition 
           name="flip" 
           mode="out-in">
@@ -20,7 +42,7 @@
             small
             outline
             icon
-            @click="editing = !editing">
+            @click="toggleEditing">
             <v-icon size="16">
               {{ editing ? 'check' : 'edit' }}
             </v-icon>
@@ -112,7 +134,7 @@
                 Name:
               </span> 
               <span>
-                {{ $auth.user.name || '-Fill your information-' }}
+                {{ $store.state.user.user.name || '-Fill your information-' }}
               </span>
             </v-flex>
             <v-flex 
@@ -127,7 +149,7 @@
                 Last name:
               </span> 
               <span>
-                {{ $auth.user.lastName || '-Fill your information-' }}
+                {{ $store.state.user.user.lastName || '-Fill your information-' }}
               </span>
             </v-flex>
             <v-flex 
@@ -140,7 +162,7 @@
                 Email:
               </span> 
               <span>
-                {{ $auth.user.email || '-Fill your information-' }}
+                {{ $store.state.user.user.email || '-Fill your information-' }}
               </span>
             </v-flex>
           </v-layout>
@@ -154,22 +176,44 @@
 <script>
 // SLOT SCOPE THE V-IF
 export default {
-  props: {
-    user: {
-      type: Object,
-      default: () => {}
-    }
-  },
   data() {
     return {
       editing: false,
       form: {
-        name: this.user.name,
-        lastName: this.user.lastName,
-        email: this.user.email
+        name: this.$store.state.user.user.name,
+        lastName: this.$store.state.user.user.lastName,
+        email: this.$store.state.user.user.email
       },
       sizeData: {
         originalHeight: 0
+      }
+    }
+  },
+  methods: {
+    updateUser() {
+      let data = { id: this.$auth.user.id, ...this.form }
+      this.$axios.put('/api/users/current', { data }).then(result => {
+        if (result.data.user) {
+          this.$store.commit('user/setUser', {
+            ...this.$store.state.user.user,
+            ...result.data.user
+          })
+          this.$toast.info('Profile updated')
+        }
+      })
+    },
+    toggleEditing() {
+      if (this.editing) {
+        this.updateUser()
+        this.editing = false
+      } else {
+        this.editing = true
+      }
+    },
+    cancelEditing() {
+      if (this.editing) {
+        this.editing = false
+        // MAYBE: Refresh user data
       }
     }
   }

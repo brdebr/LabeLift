@@ -60,6 +60,10 @@ export default {
       deep: true
     }
   },
+  async fetch({ store, params, app }) {
+    let { data } = await app.$axios.get(`/api/users/info/`)
+    store.commit('user/setUser', data.data)
+  },
   asyncData() {
     return {
       user: {

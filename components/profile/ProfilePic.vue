@@ -117,6 +117,7 @@ export default {
       this.isMdOrLow = this.$vuetify.breakpoint.mdAndDown
     },
     onUpload() {
+      this.$toast.info('Profile picture changed', { icon: 'face' })
       setTimeout(() => {
         this.editingImg = false
       }, 1500)

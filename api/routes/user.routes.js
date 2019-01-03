@@ -19,7 +19,23 @@ router.get(
   passport.authenticate('jwt', {
     session: false
   }),
+  usersController.getState
+)
+
+router.get(
+  '/info',
+  passport.authenticate('jwt', {
+    session: false
+  }),
   usersController.getCurrent
+)
+
+router.put(
+  '/current',
+  passport.authenticate('jwt', {
+    session: false
+  }),
+  usersController.updateProfile
 )
 
 router.post(
