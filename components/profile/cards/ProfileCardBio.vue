@@ -3,12 +3,35 @@
     flat
     class="round"
     color="light-green lighten-5">
-    <v-card-title class="pb-1">
-      <div class="headline font-weight-medium">
+    <v-card-title>
+      <v-flex 
+        class="headline font-weight-medium">
         Bio
-      </div>
+      </v-flex>
+      <v-flex 
+        shrink 
+        class="ml-auto">
+        <transition 
+          name="flip" 
+          mode="out-in">
+          <v-btn 
+            :color="`${editing ? 'green' : 'secondary' } darken-1`"
+            :key="editing"
+            small
+            outline
+            icon
+            @click="editing = !editing">
+            <v-icon size="16">
+              {{ editing ? 'check' : 'edit' }}
+            </v-icon>
+          </v-btn>
+        </transition>
+      </v-flex>
     </v-card-title>
-    <v-card-text class="pt-1">
+    <v-card-text 
+      v-if="editing" 
+      key="editing" 
+      class="pt-1">
       <no-ssr>
         <ckeditor 
           :editor="editor" 
@@ -16,6 +39,12 @@
           :config="editorConfig" 
           class="ck-user-bio"/>
       </no-ssr>
+    </v-card-text>
+    <v-card-text 
+      v-else 
+      key="display" 
+      class="pt-1">
+      <div v-html="editorData"/>
     </v-card-text>
   </v-card>
 </template>
@@ -37,8 +66,9 @@ export default {
   },
   data() {
     return {
+      editing: false,
       editor: InlineEditor,
-      editorData: '<p>Content of the editor.</p>',
+      editorData: this.user.bio,
       editorConfig: {
         // The configuration of the editor.
       }
@@ -46,7 +76,7 @@ export default {
   },
   mounted() {
     // this.editorData = this.user.bio
-    console.log(this.editorData)
+    // console.log(this.editorData)
   }
 }
 </script>

@@ -98,7 +98,7 @@ export default {
             method: 'POST',
             withCredentials: false,
             headers: {
-              'Authorization': this.$auth.getToken('local')
+              Authorization: this.$auth.getToken('local')
             },
             timeout: 7000,
             onload: null,
