@@ -21,7 +21,7 @@
         style="cursor:pointer">
         {{ title }} 
         <span 
-          v-if="false" 
+          v-if="envMode === 'development'" 
           class="text-uppercase">
           -- wip [| {{ $vuetify.breakpoint.name }} |]
         </span>
@@ -41,6 +41,8 @@
   </v-toolbar>
 </template>
 <script>
+let envMode = process.env.NODE_ENV
+
 import LoginForm from '~/components/auth/LoginForm'
 import SignUpForm from '~/components/auth/SignUpForm'
 import ToolbarMenu from '~/components/profile/ToolbarMenu'
@@ -53,6 +55,7 @@ export default {
   },
   data() {
     return {
+      envMode,
       items: [
         { icon: 'apps', title: 'Dashboard', to: '/' },
         { icon: 'bubble_chart', title: 'About', to: '/about' }

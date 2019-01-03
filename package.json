@@ -17,6 +17,8 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-inline": "^11.2.0",
+    "@ckeditor/ckeditor5-vue": "^1.0.0-beta.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
     "@fortawesome/free-brands-svg-icons": "^5.6.3",
     "@fortawesome/free-solid-svg-icons": "^5.6.3",
@@ -26,9 +28,13 @@
     "bcryptjs": "^2.4.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.3",
+    "filepond": "^3.7.2",
+    "filepond-plugin-file-validate-type": "^1.2.1",
+    "filepond-plugin-image-preview": "^3.1.6",
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.23.0",
     "morgan": "^1.9.1",
+    "multer": "^1.4.1",
     "node-sass": "^4.11.0",
     "nuxt": "^2.3.4",
     "nuxt-fontawesome": "^0.3.0",
@@ -39,6 +45,7 @@
     "pg-hstore": "^2.3.2",
     "sass-loader": "^7.1.0",
     "sequelize": "^4.42.0",
+    "vue-filepond": "^4.0.2",
     "vuetify": "^1.2.4",
     "vuetify-toast-snackbar": "^0.1.3"
   },

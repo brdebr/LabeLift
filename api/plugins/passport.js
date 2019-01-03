@@ -24,7 +24,12 @@ module.exports = passport => {
             )
             let now = moment()
             let exp = moment.unix(payload.exp)
+            let iat = moment.unix(payload.iat)
+
             safeUser.expHuman = now.to(exp)
+            safeUser.iatHuman = iat.from(now)
+
+            safeUser.iat = iat.format('DD/MM/YYYY - hh:mm:ss')
             safeUser.exp = exp.format('DD/MM/YYYY - hh:mm:ss')
             done(null, safeUser)
             return safeUser
