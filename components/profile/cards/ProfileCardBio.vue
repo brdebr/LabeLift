@@ -21,7 +21,7 @@
             outline
             icon
             @click="editing = !editing">
-            <v-icon size="16">
+            <v-icon size="14">
               {{ editing ? 'check' : 'edit' }}
             </v-icon>
           </v-btn>

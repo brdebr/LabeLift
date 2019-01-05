@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="38" viewBox="0 0 196 196">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" :height="height" viewBox="0 0 196 196">
   <defs>
     <linearGradient id="linear-gradient" x1="98" y1="11.5" x2="98" y2="184.5" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#b0bec5"/>
@@ -11,9 +11,9 @@
   </defs>
   <title>Logo LabeLift</title>
   <g id="Layer_box" data-name="Layer box">
-    <path id="background" d="M377.5,183.5V284.41a35.09,35.09,0,0,1-35.09,35.09H219.59a35.09,35.09,0,0,1-35.09-35.09V161.59a35.09,35.09,0,0,1,35.09-35.09H320.5l46,11Z" transform="translate(-183 -125)" fill="#2962ff" stroke="#FFF" stroke-miterlimit="10" stroke-width="5"/>
-    <rect id="background-grey" x="11.5" y="11.5" width="173" height="173" rx="28.17" ry="28.17" stroke="#FFF" stroke-miterlimit="10" fill="url(#linear-gradient)"/>
-    <path id="sticker-tr" d="M342.41,126.5H320.5v21.91a35.09,35.09,0,0,0,35.09,35.09H377.5V161.59A35.09,35.09,0,0,0,342.41,126.5Z" transform="translate(-183 -125)" fill="#1e88e5" stroke="#FFF" stroke-miterlimit="10" stroke-width="5"/>
+    <path id="background" d="M377.5,183.5V284.41a35.09,35.09,0,0,1-35.09,35.09H219.59a35.09,35.09,0,0,1-35.09-35.09V161.59a35.09,35.09,0,0,1,35.09-35.09H320.5l46,11Z" transform="translate(-183 -125)" fill="#2962ff" :stroke="`${dark ? '#FFF' : '#000' }`" stroke-miterlimit="10" stroke-width="5"/>
+    <rect id="background-grey" x="11.5" y="11.5" width="173" height="173" rx="28.17" ry="28.17" :stroke="`${dark ? '#FFF' : '#000' }`" stroke-miterlimit="10" fill="url(#linear-gradient)"/>
+    <path id="sticker-tr" d="M342.41,126.5H320.5v21.91a35.09,35.09,0,0,0,35.09,35.09H377.5V161.59A35.09,35.09,0,0,0,342.41,126.5Z" transform="translate(-183 -125)" fill="#1e88e5" :stroke="`${dark ? '#FFF' : '#000' }`" stroke-miterlimit="10" stroke-width="5"/>
   </g>
   <g id="Layer_letters" data-name="Layer letters">
     <path id="Lr" d="M291.8,265.56q1.49-13.94,2.14-22.74,1.24-16.06,1.86-31.92t.63-26q8,.12,14.22.12c2.79,0,4.81,0,10-.12l-1.42,21.38-1.78,33.43-.24,8.21c6.77.12,13.19.18,15.24.18q15.52,0,23.51-.42l-1.3,17.84q-15.54-.12-29.59-.12Q306.09,265.44,291.8,265.56Z" transform="translate(-183 -125)" fill="#0d47a1" stroke="#fff" stroke-miterlimit="10" stroke-width="4"/>
@@ -31,6 +31,16 @@
 </template>
 <script>
 export default {
-  
+  props: {
+    height: {
+      type: Number,
+      default: 38
+    },
+    dark: {
+      type: Boolean,
+      default: false
+    },
+
+  },
 }
 </script>

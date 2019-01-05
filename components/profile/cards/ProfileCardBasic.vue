@@ -43,7 +43,7 @@
             outline
             icon
             @click="toggleEditing">
-            <v-icon size="16">
+            <v-icon size="14">
               {{ editing ? 'check' : 'edit' }}
             </v-icon>
           </v-btn>
@@ -130,6 +130,9 @@
               xl4
               class="mt-1 pt-3"
               style="height: 64px">
+              <v-icon color="secondary" class="mr-1">
+                person
+              </v-icon>
               <span class="subheading font-weight-medium">
                 Name:
               </span> 
@@ -145,6 +148,9 @@
               xl4
               class="mt-1 pt-3"
               style="height: 64px">
+              <v-icon color="secondary" class="mr-1">
+                perm_identity
+              </v-icon>
               <span class="subheading font-weight-medium">
                 Last name:
               </span> 
@@ -158,6 +164,9 @@
               xl4
               class="mt-1 pt-3"
               style="height: 64px">
+              <v-icon color="secondary" class="mr-1">
+                email
+              </v-icon>
               <span class="subheading font-weight-medium mr-1">
                 Email:
               </span> 

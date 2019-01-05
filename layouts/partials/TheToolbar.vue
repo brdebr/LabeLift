@@ -20,7 +20,7 @@
         tag="v-layout"
         class="align-center"
         style="cursor:pointer">
-        <logo class="ml-2 mr-3"/>
+        <logo dark class="ml-2 mr-3"/>
         <span class="mr-4">
           {{ title }}
         </span>
