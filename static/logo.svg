@@ -1,4 +1,3 @@
-<template>
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="38" viewBox="0 0 196 196">
   <defs>
     <linearGradient id="linear-gradient" x1="98" y1="11.5" x2="98" y2="184.5" gradientUnits="userSpaceOnUse">
@@ -27,10 +26,3 @@
     </g>
   </g>
 </svg>
-
-</template>
-<script>
-export default {
-  
-}
-</script>

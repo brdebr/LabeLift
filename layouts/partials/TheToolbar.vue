@@ -17,13 +17,17 @@
       <nuxt-link
         exact
         to="/"
-        tag="span"
+        tag="v-layout"
+        class="align-center"
         style="cursor:pointer">
-        {{ title }} 
+        <logo class="ml-2 mr-3"/>
+        <span class="mr-4">
+          {{ title }}
+        </span>
         <span 
           v-if="envMode === 'development'" 
           class="text-uppercase">
-          -- wip [| {{ $vuetify.breakpoint.name }} |]
+           [| {{ $vuetify.breakpoint.name }} |]
         </span>
       </nuxt-link>
     </v-toolbar-title>
@@ -43,15 +47,17 @@
 <script>
 let envMode = process.env.NODE_ENV
 
+import Logo from '~/components/Logo'
 import LoginForm from '~/components/auth/LoginForm'
 import SignUpForm from '~/components/auth/SignUpForm'
 import ToolbarMenu from '~/components/profile/ToolbarMenu'
 
 export default {
   components: {
+    Logo,
     LoginForm,
     ToolbarMenu,
-    SignUpForm
+    SignUpForm,
   },
   data() {
     return {
