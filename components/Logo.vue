@@ -33,8 +33,8 @@
 export default {
   props: {
     height: {
-      type: Number,
-      default: 38
+      type: String,
+      default: '38'
     },
     dark: {
       type: Boolean,
