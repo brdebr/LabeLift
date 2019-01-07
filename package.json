@@ -45,6 +45,7 @@
     "pg-hstore": "^2.3.2",
     "sass-loader": "^7.1.0",
     "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
     "vue-filepond": "^4.0.2",
     "vuetify": "^1.2.4",
     "vuetify-toast-snackbar": "^0.1.3"
