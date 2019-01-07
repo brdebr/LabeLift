@@ -75,7 +75,14 @@ exports.updateProfile = async (req, res, next) => {
   }
 }
 
-exports.profileUpload = (req, res, next) => {
+exports.profileUpload = async (req, res, next) => {
+  let user = await User.findByPk(req.user.id)
+  let updated = await user.update({ pictureId: req.file.filename })
+  res.set('Content-Type', 'text/plain')
+  res.send(req.file.filename)
+}
+
+exports.getPicture = (req, res, next) => {
   res.set('Content-Type', 'text/plain')
   res.send(req.file.filename)
 }

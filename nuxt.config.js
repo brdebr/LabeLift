@@ -130,7 +130,7 @@ module.exports = {
       login: '/?login',
       logout: '/?logout',
       user: '/?user',
-      home: '/profile?home',
+      home: '/profile',
       callback: '/profile?callback'
     }
   },

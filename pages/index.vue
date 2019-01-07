@@ -5,7 +5,10 @@
     <v-flex
       xs12>
       <v-card>
-        <v-card-title class="headline">Welcome to the LabeLift</v-card-title>
+        <v-card-title>
+          <span class="display-1 ml-1">Welcome to the LabeLift</span>
+          <logo class="ml-auto" height="64"/>
+        </v-card-title>
         <v-card-text>
           <p>Web application to manage the sale of labels that do the heavy lifting for you.</p>
           <p>
@@ -51,7 +54,12 @@
 </template>
 
 <script>
+import Logo from '~/components/Logo'
+
 export default {
+  components:{
+    Logo
+  },
   asyncData() {
     return {
       headers: [
