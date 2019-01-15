@@ -1,10 +1,12 @@
 <template>
   <v-card 
+    v-if="$auth.user" 
     height="100%" 
     width="100%">
+    <!-- TODO: ^^^ Why the auth middleware is not working, patched it like this ^^^? -->
     <v-card-title class="headline elevation-1">
       <v-flex xs10>
-        Profile
+        Your profile
       </v-flex>
       <v-flex
         xs2
@@ -26,50 +28,8 @@
           md3 
           xl2
           class="px-2">
-          <v-card 
-            hover 
-            raised
-            class="mt-1"
-          >
-            <v-card-title>
-              <v-flex class="body-2">
-                Avatar / Picture
-              </v-flex>
-              <v-flex 
-                shrink 
-                class="body-2 ml-auto">
-                <v-icon>face</v-icon>
-              </v-flex>
-            
-            </v-card-title>
-            <v-divider/>
-            <v-img
-              :src="image"
-              :lazy-src="image"
-              class="elevation-2"
-              aspect-ratio="0.90"
-            />
-            <v-divider/>
-            
-            <v-card-actions class="my-2 mt-3 pb-3">
-              <v-btn 
-                block 
-                flat 
-                outline 
-                color="amber darken-2">
-                <v-icon>delete</v-icon>
-              </v-btn>
-              <v-btn 
-                block 
-                flat 
-                outline 
-                color="secondary">
-                <v-icon>edit</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+          <profile-pic :pic="image"/>
         </v-flex>
-
         <v-flex
           class="px-3 mt-1"
           xs12 
@@ -84,11 +44,13 @@
 </template>
 <script>
 import ProfileForm from '~/components/profile/ProfileForm'
+import ProfilePic from '~/components/profile/ProfilePic'
 
 export default {
   middleware: 'auth',
   components: {
-    ProfileForm
+    ProfileForm,
+    ProfilePic
   },
   watch: {
     user: {
@@ -97,6 +59,10 @@ export default {
       },
       deep: true
     }
+  },
+  async fetch({ store, params, app }) {
+    let { data } = await app.$axios.get(`/api/users/info/`)
+    store.commit('user/setUser', data.data)
   },
   asyncData() {
     return {

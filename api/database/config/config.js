@@ -1,3 +1,4 @@
+module.exports =
 {
   "development": {
     "username": "brdebr",
@@ -15,11 +16,12 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "ssl": true
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE,
+    port: 5432,
+    username: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWD,
+    dialect: 'postgres',
+    ssl: true
   }
 }

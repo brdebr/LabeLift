@@ -53,7 +53,9 @@ module.exports = {
    */
   css: [
     '~/assets/style/app.styl',
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    'filepond/dist/filepond.min.css',
+    'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
   ],
 
   /*
@@ -62,7 +64,8 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/fontawesome',
-    { src: '@/plugins/snackbars', ssr: false }
+    { src: '@/plugins/snackbars', ssr: false },
+    { src: '@/plugins/ckeditor', ssr: false }
   ],
 
   /*
@@ -124,11 +127,11 @@ module.exports = {
       }
     },
     redirect: {
-      login: '/',
-      logout: '/',
-      user: '/',
+      login: '/?login',
+      logout: '/?logout',
+      user: '/?user',
       home: '/profile',
-      callback: '/'
+      callback: '/profile?callback'
     }
   },
   /*

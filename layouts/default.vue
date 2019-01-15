@@ -2,7 +2,7 @@
   <v-app>
     <TheToolbar/>
     <TheDrawer
-      :items="drawer.items"
+      :items="itemsAuth"
     />
     <v-content class="grey lighten-3">
       <v-container fill-height>
@@ -26,13 +26,19 @@ export default {
   data() {
     return {
       drawer: {
-        items: [
-          { icon: 'apps', title: 'Dashboard', to: '/' },
-          { icon: 'info', title: 'About', to: '/about' }
-        ]
+        items: this.$store.getters['layout/itemsPublic']
       }
     }
-  }
+  },
+  computed: {
+    itemsAuth() {
+      if(this.$auth.loggedIn){
+        return this.$store.state.layout.drawer.items
+      }else{
+        return this.drawer.items
+      }
+    }
+  },
 }
 </script>
 <style lang="scss">

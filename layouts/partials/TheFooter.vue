@@ -20,12 +20,14 @@
       <v-btn
         round
         outline
+        small
         href="https://github.com/brdebr/LabeLift"
         flat>
-        <span class="mr-2 body-1 hidden-xs-only">Source code</span>
+        <span class="mx-2 body-1 hidden-xs-only">Source code</span>
         <fa
           :icon="['fab','github']"
-          style="font-size: 24px" />
+          style="font-size: 20px"
+          class="mx-1"/>
       </v-btn>
 
     </v-layout>
